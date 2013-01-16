@@ -1,0 +1,265 @@
+#content{
+	position:relative;
+	margin:0 auto;
+	width:980px;
+}
+
+#detail span{
+	color:#adacac;
+	font: 16px "Arial Narrow", "Tahoma";
+}
+#detail .warning_inline{
+	font: 16px "Arial Narrow", "Tahoma";
+}
+
+#detail #attributes span{
+	position:relative;
+	display:block;
+}
+
+#detail #attributes {
+	padding: 0;
+}
+
+#detail span a{
+	text-decoration:none;
+	color:#adacac;
+}
+
+#detail a:hover{
+	text-decoration:underline;
+}
+
+#detail .ariane{
+	top:0px;
+}
+
+.home{
+	background: url('../img/assets/home.png') no-repeat 0 0;
+	padding-left:25px;
+}
+
+
+pre{
+	font:13px "Tahoma";
+	color:#595959;
+	white-space: pre-wrap;       /* css-3 */
+ 	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ 	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+ 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+p{
+	font:13px "Tahoma";
+	color:#595959;
+	margin:0 0 15px 15px;
+}
+
+p.center{	
+	margin-left:0;
+	text-align:center;
+}
+
+em{
+	font:bold 13px "Tahoma";
+	color:#fff;
+	margin: 0 10px 0 1px;
+}
+.page {
+    position:relative;
+    display:inline-block;
+    background:#fff;
+	box-shadow: 2px 2px 5px #e6e3da;
+	margin:auto;
+	padding:10px 20px;
+}
+
+/* SLIDER */
+#blockslider {
+	width:440px;
+	position:relative;
+	float:left;
+    background:transparent;
+    height:510px;
+	margin:auto;
+	padding: 30px 20px 0px 20px;
+}
+
+#blockslider ul li {
+	display:inline;
+	padding-left:10px;
+}
+#photozone {
+	width:100%;
+	position:relative;
+	display:inline-block;
+	margin: 40px 0;
+}
+
+#photozone h2 {
+	border-top: solid 1px #b4aca6;
+	width:185px;
+	padding-left:0;
+	display:inline-block;
+}
+
+#photoh2  {
+    position:absolute;
+    padding-top:5px
+}
+
+#slider {
+    position:relative;
+    display:block;
+    margin:10px 10px;
+    padding-left:4px;
+}
+
+#slider img{
+    margin-left: 48px;
+}
+
+#backslide, #nextslide {
+    position:absolute;
+    height:31px;
+    width:31px;
+    top:80px;
+    }
+#backslide {
+	background:url('../img/assets/slider-arrow-left.png') no-repeat;
+	left:4px;
+}
+
+#nextslide {
+	background:url('../img/assets/slider-arrow-right.png') no-repeat;
+	right:4px;
+}
+
+.imgBorder{
+	border-radius:3px;
+	border:2px solid #eeeded;
+}
+
+/* PRODUCT */
+#detail {
+	width:400px;
+	float:right;
+}
+
+figure{
+       display:inline-block;
+       margin:15px 33px 30px 33px;
+}
+
+figure img {
+float:left;    
+}
+
+figcaption {
+	font: 14px "Tahoma";
+	text-align:center;
+	width:200px;
+}
+figcaption#marque{
+	color:#1c1c1c;
+	font-weight:bold;
+}
+figcaption#produit{
+	color:#adacac;
+}
+figcaption#prix{
+	color:#a90d0d;
+	font-weight:bold;
+}
+
+/* DETAILS */
+
+#tabDetails {
+	position:relative;
+	display:inline-block;
+	padding:0;
+	margin-left:25px;
+	width:360px;
+	height:200px;
+	
+}
+#tabDetails ul {
+    height:150px;
+    padding:4px 0;
+    margin:0;
+    }
+#tabDetails ul li {
+    display:inline;
+    background: #148ad1;
+    font: 14px "Tahoma";
+    color:#fff;
+    text-align:center;
+    padding:5px 25px;
+    margin:0px;
+}
+
+#tabDetails ul li:hover {
+	background: #10689e;
+}
+
+#tabDetails ul li a{
+    color:#fff;
+    text-decoration:none;   
+}
+
+#tabDetails #descriptif, #tabDetails #infostaille, #tabDetails #infoslavage {
+    position:absolute;
+    border-bottom:solid 1px #dbdbdb;
+    border-left:solid 1px #dbdbdb;
+    border-right:solid 1px #dbdbdb;
+    top:27px;
+    width:344px;
+}
+
+#tabDetails #descriptif ul li, #tabDetails #infostaille ul li, #tabDetails #infoslavage ul li, #tabDetails p {
+	display:block;
+	background:transparent;
+	color:#8e8e8e;
+	text-align:left;
+	font: 14px "Tahoma";
+}
+
+#selectzone {
+	width:348px;
+	margin-left:25px;
+	display:inline-block;
+	font: 14px "Tahoma";
+}
+
+#selectzone span {
+	color:#706f6f;
+	margin-bottom:10px;
+}
+
+#selectzone div {
+	display:inline-block;
+	padding:20px 13px;
+}
+
+#selectzone select#couleur {width:100px;}
+#selectzone select#taille, #selectzone select#quantite {width:80px;}
+
+#selectzone input {
+    margin:0 auto;
+    padding:11px;
+    background:url('../img/assets/btn.png');
+    font-size:14px;
+    color:#29140c;
+    cursor:pointer;
+    width:160px;
+    border:none;
+
+}
+
+#selectzone a{
+    display:block;
+    text-decoration:none;
+    margin:25px auto 0;
+    color:#8e8e8e;
+}

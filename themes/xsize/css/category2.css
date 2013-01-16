@@ -1,0 +1,246 @@
+h1{
+    position:relative;
+	font:bold 14px "Tahoma";
+	color:#29140c;
+	margin:50px 0px 30px 270px;
+	padding: 5px;
+	width:155px;
+	border-top:solid 1px;
+	border-bottom:solid 1px;	
+}
+
+hr {
+	background: url('../img/assets/filtre_sep_horiz.png');
+	margin:10px auto;
+	color:#ebeaea;
+	width:189px;
+	height:1px;
+	border:none;
+}
+
+input[type=range] {
+	position:relative;
+	width:140px;
+	height:2px;
+	margin:22px 0 0 10px;
+	background:#000;
+	-webkit-appearance: none;
+}
+
+input[type="range"]:before {
+    content: attr(min);
+    position:absolute;
+    top:-1.5em;
+    margin-left:.3em;
+}
+
+input[type="range"]:after {
+    content: attr(max);
+    position:absolute;
+    top:-1.5em;
+    margin-left:9.5em;
+}
+
+input[type="range"]::-webkit-slider-thumb,-moz-slider-thumb{
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	z-index: 3;
+	width: 15px;
+	height: 10px;
+	transform:rotate(180deg);
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg);
+	-o-transform:rotate(180deg);
+	-ms-transform:rotate(180deg);
+	background:url('../img/assets/filtre_down_arrow.png') no-repeat 0px 0px;
+}
+#content {position:relative;}
+#content span{
+	color:#adacac;
+	font: 16px "Arial Narrow", "Tahoma";
+}
+
+#content span a{
+	text-decoration:none;
+	color:#adacac;
+}
+
+#content span a:hover{
+	text-decoration:underline;
+}
+
+.tri{
+    position:absolute;
+	top:147px;
+	background:#fff;
+	padding:5px;
+}
+#content .tri a.current{color:black}
+.ariane{
+	top:0px;
+}
+
+.home{
+	background: url('../img/assets/home.png') no-repeat 0 0;
+	padding-left:20px;
+}
+/* product_list */
+#product_list{
+    margin-left: 235px;
+	width:750px;	
+}
+
+#product_list img {
+	border-style:url('../img/assets/product-bg.png');
+}
+
+.imgBorder{
+	border-radius:3px;
+	border:2.5px solid #eeeded;
+}
+
+figure{
+       display:inline-block;
+       margin:12px 33px;
+}
+   
+figcaption {
+	font: 14px "Tahoma";
+	text-align:center;
+	width:175px;
+}
+figcaption#marque{
+	color:#1c1c1c;
+	font-weight:bold;
+}
+figcaption#produit{
+	color:#adacac;
+}
+figcaption#prix{
+	color:#a90d0d;
+	font-weight:bold;
+}
+
+/* ------------------------ */
+#filtre{
+	position:fixed;
+	top:130px;
+	width:220px;
+	height:725px;
+	background:#fff;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	box-shadow: 2px 2px 5px #595959; 
+}
+
+#criteres {
+	background:url('../img/assets/filtre_down_arrow.png') no-repeat;
+	margin: 15px 0 10px 35px;
+	padding-left:25px;
+	font: 14px "Tahoma";
+}
+
+#colorzone {
+	height:120px;
+}
+
+#marquezone {
+	height:113px;
+	overflow-y:scroll;
+	position:relative;
+}
+
+#marquezone p {
+    margin:6px 5px 5px 35px;
+    font:12px "Tahoma";
+}
+
+#marquezone div {
+	position:absolute;
+	width:15px;
+	height:15px;
+	border:solid 1px #ccc;
+	margin:5px 0 10px 8px;
+	background-color:#fff;
+}
+
+#marquezone div:hover {
+	background-color:#000;
+}
+
+.inputzone {
+	width:160px;
+	height:44px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	background:#edf0f2;
+	margin:auto;
+}
+
+.color {
+	width:24px;
+	height:24px;
+	border:solid 1px #ccc;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-radius:10px;
+	-ms-border-radius:10px;
+	display:inline-block;
+    margin: 8px 0px 0px 18px;
+}
+
+#noir{background-color:#000;}
+#blanc{background-color:#fff;}
+#gris{background-color:#a7a7a7;}
+#rouge{background-color:#c50000;}
+#orange{background-color:#f8b345;}
+#beige{background-color:#fee482;}
+#vert{background-color:#9adb71;}
+#bleu{background-color:#028add;}
+#violet{background-color:#c883bf;}
+
+#pagination {
+	margin:50px auto;
+	width:360px;
+}
+
+input[type=button] {
+    font:14px "Myriad Pro";
+    color:#909090;
+    padding:5px 10px;
+    border:solid 1px #ddd;
+    background-image: linear-gradient(top, rgb(255,255,255) 44%, rgb(242,242,242) 72%, rgb(241,241,241) 86%);
+    background-image: -o-linear-gradient(top, rgb(255,255,255) 44%, rgb(242,242,242) 72%, rgb(241,241,241) 86%);
+    background-image: -moz-linear-gradient(top, rgb(255,255,255) 44%, rgb(242,242,242) 72%, rgb(241,241,241) 86%);
+    background-image: -webkit-linear-gradient(top, rgb(255,255,255) 44%, rgb(242,242,242) 72%, rgb(241,241,241) 86%);
+    background-image: -ms-linear-gradient(top, rgb(255,255,255) 44%, rgb(242,242,242) 72%, rgb(241,241,241) 86%);
+    border-radius:3px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    -ms-border-radius:3px;
+    -o-border-radius:3px;
+}
+
+input[type=button]:hover {
+    background:#aaacad;
+    color:#fff;
+}
+
+#goTop{
+	position:fixed;
+	bottom:200px;
+	width:27px;
+    height:57px;
+	background:url('../img/assets/up-to-top.png') no-repeat -27px 0;
+}
+
+#goTop:hover{
+    background:url('../img/assets/up-to-top.png') no-repeat 0 0;
+}

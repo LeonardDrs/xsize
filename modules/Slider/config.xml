@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>Slider</name>
+	<displayName><![CDATA[Slider Home]]></displayName>
+	<version><![CDATA[1.0]]></version>
+	<description><![CDATA[Slider d&#039;images pour la page d&#039;accueil]]></description>
+	<author><![CDATA[xSize]]></author>
+	<tab><![CDATA[xsize]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

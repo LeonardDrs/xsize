@@ -1,0 +1,35 @@
+/* block top user information */
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+#header_right #header_user {
+	float: right;
+	width: 262px;
+	text-align: right;
+	margin-top:-50px;
+}
+#header_user p { color: #595a5e;font: 12px Tahoma, Arial;}
+#header_user span.ajax_cart_quantity {float:left; font-weight: bold;display:inline;width:28px;text-align:center;height:25px;padding:24px 0px 0 35px;background:url('../../../img/xsize/rond-panier.png') 35px 20px no-repeat}
+#header_user span.ajax_cart_total, #header_user span.ajax_cart_no_product{display:block;width:108px;margin-left:80px;text-align:center; margin-top: -5px;font: 13px 'Arial Narrow';color:#9da28e;font-style:italic;}
+#header_user ul {margin-top:20px;}
+#header_user li {
+	float: left;
+	line-height: 2em;
+	margin-left: 0.5em;
+}
+#header_user  #header_user_info{float:right;width:800px; height:40px;margin:-28px 0 21px 0;background:url('../../../img/xsize/top-bar.png') no-repeat 0px -20px;color:#b1b1b1}
+#header_user  #header_user_info a{text-decoration:none;color:#b1b1b1;display:inline-block;padding:8px 5px 5px 5px;}
+#header_user  #header_user_info a#nolog{text-decoration:none;background:url('../../../img/xsize/login-bg-left.png') no-repeat -3px -11px, url('../../../img/xsize/login-bg-right.png') no-repeat -289px -9px;color:#b1b1b1;display:inline-block;padding:8px 10px 10px 10px;}
+#header_user  #header_user_info span#lineinfos{background:url('../../../img/xsize/login-bg-left.png') no-repeat -3px -11px, url('../../../img/xsize/login-bg-right.png') no-repeat -125px -9px;padding:10px 10px 5px 10px;}
+
+#header_user #shopping_cart {font-size: 0.9em;height:60px;width:262px;margin-top:-10px}
+
+#header_user #shopping_cart a {
+	text-decoration: none;
+	font-size:18px;
+	font-family: 'Pacifico', cursive;
+	display:inline-block;
+	padding-bottom:0px;
+	margin: 15px 86px 0 0;
+}
+#header_user #your_account a{display:none;}
+#header_user #shopping_cart  { background: url('../../../img/xsize/panier.png') no-repeat;background-position: top left;padding:10px;margin-top:3px;}

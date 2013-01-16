@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<html>
+
+		<right_2>&lt;div id=&quot;paiement&quot;&gt;
+					&lt;div class=&quot;topRightColumn&quot;&gt;
+						Mode de paiement sécurisé
+					&lt;/div&gt;
+					&lt;div id=&quot;bottomPaiement&quot;&gt;
+						&lt;img class=&quot;imgPay&quot; src=&quot;themes/xsize/img/home/cb.jpg&quot;/&gt; 
+						&lt;img class=&quot;imgPay&quot; alt=&quot;visa&quot; src=&quot;themes/xsize/img/home/visa.jpg&quot;/&gt; 
+						&lt;img class=&quot;imgPay&quot; alt=&quot;mastercard&quot; src=&quot;themes/xsize/img/home/mastercard.jpg&quot;/&gt; 
+						&lt;img id=&quot;imgPayDer&quot; alt=&quot;cheque&quot; src=&quot;themes/xsize/img/home/cheque.jpg&quot;/&gt;
+						&lt;img alt=&quot;separateur&quot; src=&quot;themes/xsize/img/home/rightSepPay.jpg&quot;/&gt;
+						&lt;p&gt;Retrait des articles possible en magasin&lt;/p&gt;
+						&lt;img alt=&quot;separateur&quot; src=&quot;themes/xsize/img/home/rightSepPay.jpg&quot;/&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;</right_2>
+</html>

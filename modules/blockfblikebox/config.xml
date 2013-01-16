@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>blockfblikebox</name>
+	<displayName><![CDATA[Facebook Like Box Block]]></displayName>
+	<version><![CDATA[0.3]]></version>
+	<description><![CDATA[Adds a Facebook social plugin Like Box]]></description>
+	<author><![CDATA[]]></author>
+	<tab><![CDATA[internet-solutions.si | celavi.org]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

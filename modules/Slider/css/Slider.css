@@ -1,0 +1,8 @@
+#banner {width:530px;float:left;margin-left:8px;}
+#banner-imgs {position:relative;width: 626px; height: 456px; overflow:hidden;margin-left: auto;margin-right: auto;background:white;border-radius:10px;box-shadow:3px 3px 5px #E1E0DB;padding:6px}
+#banner-imgs a{padding:5px}
+#banner #nav {z-index:999; position:relative; bottom:10px; width:640px; text-align:center; }
+#banner #nav a {color:transparent;}
+.boutonSlide {background-image:url('../images/Bslider.png');background-repeat:no-repeat;}
+.activeSlide{background-image:url('../images/BsliderActive.png');background-repeat:no-repeat;}
+#reset {clear:both;}

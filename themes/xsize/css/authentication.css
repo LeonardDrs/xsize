@@ -1,0 +1,296 @@
+/* identification */
+.formcontainer{ height:23.1em;padding: 20px 0; background:#fff; box-shadow: 2px 2px 5px #e6e3da;} 
+.formcontaineronly {margin-top:40px;}
+#authentication label {
+/*    display:block;*/
+    font: 12px "Tahoma";
+    color:#8e8e8e;
+    padding:0px 0px 5px 0px;
+    margin-left:10px;
+    margin-top:25px;
+}
+
+#authentication label.legend {
+    font: 11px "Tahoma";
+	margin-top:0px;
+}
+
+#authentication input.form, textarea.form  {
+	border: solid 1px #dcdcdc;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+}
+#authentication input.form {
+	height:30px;
+	width:210px;
+	margin-left:10px;
+}
+#authentication input.form:last-child {
+        margin-bottom:38px;
+}
+#authentication input[type="radio"] {
+	margin-left:10px;
+}
+
+#authentication textarea.form {
+	height:170px;
+	width:290px;
+	resize:none;
+}
+#authentication label.form-log{margin-top:15px;}
+#authentication span.required {
+	color:#3f85af;
+	font: 12px "Tahoma";
+}
+
+#authentication form legend{
+	font: 11px "Tahoma";
+	margin-left:15px;
+	color:#a7a6a6;
+}
+
+#authentication form div{
+	margin-left:10px;
+	margin-bottom:160px;
+}
+
+#authentication #content #login legend a {
+    color:#a7a6a6;
+    font:italic 11px "Tahoma";
+    padding:0;
+    margin:0px 0 0 15px;
+}
+
+#authentication #content #login legend a {
+	text-decoration:underline;
+}
+
+#authentication #content #infosup input[type="checkbox"] {
+	margin:30px 0 20px 0;
+}
+
+#authentication #content #adresses, #comptes{
+    font:13px "Tahoma";
+    color:#838282;
+    padding:35px 20px;
+    margin: 20px 0;
+}
+
+#authentication #content #infosup{
+    padding-left:30px;
+	text-align:left;
+}
+#authentication #content  h2#infoperso{
+	width:220px;
+	text-align:left;
+}
+#authentication #content  h2#votreadresse{
+	width:110px;
+	text-align:left;
+	margin-bottom:63px;
+}
+
+#authentication #content h1{
+    float:left;
+	font:bold 14px "Tahoma";
+	color:#838282;
+	margin:12px 30px 0 0;
+	padding: 5px;
+	width:115px;;
+	border-top:solid 1px;
+	border-bottom:solid 1px;
+	border-color:#e6e6e6;
+	text-align:center;
+}
+
+#authentication #content h2{
+	font:800 14px "Tahoma";
+	color:#8e8e8e;
+	width:140px;
+	margin:20px 8px;
+	padding:5px 0px;
+	text-align:center;
+	float:left;
+}
+#authentication #content em.current {
+	background:url('../img/assets/pannier-num.png') no-repeat 1px 0px;
+}
+#authentication #content h2 em {
+	color:#fff;
+	background:url('../img/assets/pannier-num-disabled.png') no-repeat 1px 0px;
+	width:22px;
+	height:21px;
+	padding:2px 5px 0 0;
+	display:inline-block;
+	margin:0;
+}
+
+
+#authentication #content hr{
+	border:none;
+	float:left;
+	background:url('../img/assets/sep-vertical.png') no-repeat;
+	height:66px;
+	width:1px;
+	padding:0;
+	margin:0 ;
+}
+
+#authentication #content{
+	position:relative;
+	margin:0 auto;
+	width:980px;
+}
+#authentication .right{
+	text-align:right;
+}
+
+#authentication #content #recap {
+	height:70px;
+}
+
+#authentication #content pute span{
+	color:#adacac;
+	font: 16px "Arial Narrow", "Tahoma";
+	position:relative;
+	display:block;
+	margin-bottom:25px;
+}
+
+#authentication #content span a{
+	text-decoration:none;
+	color:#adacac;
+}
+.navigation-pipe, .navigation_page, .ariane { color:#adacac; font: 14px Tahoma, sans-serif  }
+#authentication #content a:hover{
+	text-decoration:underline;
+}
+
+#authentication #content .home{
+	background: url('../img/assets/home.png') no-repeat 0 0;
+	padding-left:25px;
+}
+
+#authentication #content .right{
+	float:right;
+	margin:40px 30px 0 0;
+}
+
+#authentication #content .right p{
+    padding:5px 0;
+    margin:0;
+    border-bottom:solid 1px #edeced;
+}
+#authentication #content #total{
+	font-weight:bold;
+	border:none;
+	margin-bottom:20px;
+}
+#authentication	table {
+	text-align:left;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#authentication #content p{
+	font:13px "Tahoma";
+	color:#595959;
+	margin:0 0 15px 15px;
+	text-align:left;
+}
+
+#authentication #content p.center{
+	margin-left:0;
+	text-align:center;
+}
+
+#authentication em{
+	font:bold 13px "Tahoma";
+	color:#fff;
+	margin: 0 10px 0 1px;
+}
+#authentication .menutunnel {
+    position:relative;
+    display:inline-block;
+    background:#fff;
+    width:940px;
+	box-shadow: 2px 2px 5px #e6e3da;
+	margin:40px auto 20px auto;
+	padding:10px 20px;
+}
+#authentication .clear {clear:both;}
+#authentication .page a{
+	color:#29140c;
+	font: 14px "Tahoma";
+	text-decoration:none;
+	padding:0 2.6em ;
+}
+
+
+#authentication #goTop{
+    position:fixed;
+    bottom:20px;
+    width:27px;
+    height:57px;
+    background:url('../img/assets/up-to-top.png')no-repeat -27px 0;
+    padding:0;
+    margin-left:1000px;
+}
+
+#authentication #goTop:hover{
+    background:url('../img/assets/up-to-top.png')no-repeat 0 0;
+}
+
+#create-account_form, #login_form {display:block; float:left; border:dotted 1px #c1c1c1;
+	width:400px;
+	position:relative;
+	display:block;
+	padding:0px;
+	margin:0 43px;
+	 }
+#create-account_form fieldset , #login_form fieldset { height:22em; border:none; }
+#create-account_form fieldset h3, #login_form fieldset h3 {
+    position:relative;
+    display:block;
+    float:left;
+    width:auto;
+	color:#29140c;
+	border-top:solid 1px #e2e0df;
+	margin:30px 210px 30px 10px;
+}
+#create-account_form fieldset h4, #login_form fieldset h4 {
+    float:left;
+	text-align:left;
+	background:url('../img/assets/arrow-right.png') no-repeat 10px 4px;
+	padding:0 0 10px 25px;
+	height:1em;
+	font:13px "Tahoma";
+	color:#595959;
+	margin:0 0 20px 0;
+	width:350px;
+}
+#email_create, input#email, input#passwd {
+    display:block;
+    margin-left:10px;
+    line-height:2.2em;
+    height:2.2em;
+    width:210px;
+	border: solid 1px #dcdcdc;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px;
+	-ms-border-radius:5px;
+	padding-left:10px;
+}
+#authentication #content p.lastxt{ margin-bottom:0;}
+.lost_password a { color:#a7a6a6;
+    font:italic 11px "Tahoma";
+    padding:0;
+    margin:0px 0 0 15px;
+    }
+#SubmitLogin { background:url("../img/assets/next.png") 0 0 no-repeat; border:none; width:111px; height:44px; color:#fff; float:right; cursor:pointer; }
+#SubmitCreate { background:url("../img/assets/creer.png") 1px 0px no-repeat; border:none; height:40px; width:136px; float:right; color:#fff; cursor:pointer; margin:42px 0 0 0; padding:0;}

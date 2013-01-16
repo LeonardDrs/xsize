@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>zoomproduct</name>
+	<displayName><![CDATA[Zoom Produit]]></displayName>
+	<version><![CDATA[1.0]]></version>
+	<description><![CDATA[Effectue un zoom sur les produits de la page d&#039;un catalogue]]></description>
+	<author><![CDATA[xSize]]></author>
+	<tab><![CDATA[xsize]]></tab>
+	<is_configurable>0</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>
