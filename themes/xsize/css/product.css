@@ -224,7 +224,7 @@ figcaption#prix{
 	text-align:left;
 	font: 14px "Tahoma";
 }
-
+#infostaille p, #infoslavage p { margin-top:10px; } 
 #selectzone {
 	width:348px;
 	margin-left:25px;

@@ -148,5 +148,5 @@
 			</div>
 		</div>
 	 </div>
-	 <div id="content" class="clearfix">
+	 <div id="contentold" class="clearfix">
 	{/if}

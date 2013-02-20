@@ -23,25 +23,13 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+<div id="div404">
+	<img id="logo404" src="{$img_dir}assets/logo-xsize.png" alt="X-Size">
+	<img src="{$img_dir}assets/404.png" alt="404">
 
-<h1>{l s='Page not available'}</h1>
+	<p id="text404" class="error">
+		{l s='Nous sommes désolés mais la page que vous demandez est introuvable'}
+	</p>
 
-<p class="error">
-	<img src="{$img_dir}icon/error.gif" alt="{l s='Error'}" class="middle" />
-	{l s='We\'re sorry, but the Web address you entered is no longer available'}
-</p>
-
-<h3>{l s='To find a product, please type its name in the field below'}</h3>
-
-<form action="{$link->getPageLink('search.php')}" method="get" class="std">
-	<fieldset>
-		<p>
-			<label for="search">{l s='Search our product catalog:'}</label>
-			<input id="search_query" class="page404_input" name="search_query" type="text" />
-			<input type="submit" name="Submit" value="{l s='Search'}" class="page404_input button_small" />
-		</p>
-	</fieldset>
-	<div class="clear"></div>
-</form>
-
-<p><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}icon/home.gif" alt="{l s='Home'}" class="icon" /></a><a href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>
+	<p id="backhome404"><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}assets/go-home.png" alt="{l s='Home'}" /></a></p>
+</div>

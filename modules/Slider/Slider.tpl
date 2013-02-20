@@ -1,4 +1,4 @@
-<!-- MODULE Slider  -->
+<!-- MODULE Slider t  -->
   <div id="banner" class="grid_16">
     <div id="banner-imgs">
     {foreach from=$slides item=slide}

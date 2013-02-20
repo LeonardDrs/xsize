@@ -227,13 +227,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				<li><a class='infoslavage' href="#">Infos lavage</a></li>
 			</ul>
 			<section id="descriptif">
-				<ul>
-					<li> - Manche courte</li>
-					<li> - Encolure ronde</li>
-					<li> - Coupe droite</li>
-					<li> - Logo sur la manche</li>
-					<li> - 100 % coton</li>
-				</ul>
+				{$product->description}
 			</section>
 			<section id="infostaille" style="display:none;">
 				<p>Toutes les informations.</p>
@@ -277,14 +271,14 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		{/foreach}
 		</div>
 		{/if}
-		
+		{if $product->quantity > 0}
 		<span>{l s='Quantity :'}</span>
 		<select name="quantite" id="quantity_wanted_p">
 		{for $var=1 to $product->quantity|intval}
 			<option value="{$var}">{$var}</option>
 		{/for}
 		</select>
-		
+		{/if}
 		<input type="hidden" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" size="2" maxlength="3" {if $product->minimal_quantity > 1}onkeyup="checkMinimalQuantity({$product->minimal_quantity});"{/if} />
 		
 		<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>{l s='You must add '} <b id="minimal_quantity_label">{$product->minimal_quantity}</b> {l s=' as a minimum quantity to buy this product.'}</p>

@@ -90,10 +90,8 @@ var ajaxCart = {
 	expand : function(){
 		$(['left_column', 'right_column' , 'contentbottomHeader']).each(function(id, parentId)
 		{
-			console.log('ok ?')
 			if ($('#'+parentId+' #cart_block #cart_block_list').hasClass('collapsed'))
 			{
-				console.log('ok!')
 					$(this).addClass('collapsed').removeClass('expanded');
 					$('#'+parentId+' #cart_block #cart_block_list').slideDown({
 						duration: 600,
@@ -101,8 +99,7 @@ var ajaxCart = {
 					});
 				// toogle the button expand/collapse button
 				$('#'+parentId+' #cart_block h4 span#block_cart_expand').fadeOut('slow', function(){
-					$('#'+parentId+' #cart_block h4 span#block_cart_collapse').fadeIn('fast');
-					console.log('toogle')
+					$('#'+parentId+' #cart_block h4 span#block_cart_collapse').fadeIn('fast').css('display','block');
 				});
 
 				// save the expand statut in the user cookie
@@ -147,7 +144,7 @@ var ajaxCart = {
 				});
 			});
 			$('#cart_block h4 span#block_cart_collapse').fadeOut('slow', function(){
-				$('#cart_block h4 span#block_cart_expand').fadeIn('fast');
+				$('#cart_block h4 span#block_cart_expand').fadeIn('fast').css('display','block');
 			});
 
 			// save the expand statut in the user cookie
@@ -590,7 +587,7 @@ var ajaxCart = {
 
 	//update general cart informations everywhere in the page
 	updateCartEverywhere : function(jsonData) {
-		$('.ajax_cart_total').text(jsonData.productTotal);
+		$('.ajax_cart_total').text(jsonData.total);
 		$('.ajax_cart_shipping_cost').text(jsonData.shippingCost);
 		$('.ajax_cart_tax_cost').text(jsonData.taxCost);
 		$('.cart_block_wrapping_cost').text(jsonData.wrappingCost);
@@ -644,7 +641,6 @@ $(document).ready(function(){
 	});
 	$('#block_cart_expand').click(function(){
 			ajaxCart.expand();
-			console.log('ok ??')
 	});
 	ajaxCart.overrideButtonsInThePage();
 	ajaxCart.refresh();

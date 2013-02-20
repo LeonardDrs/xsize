@@ -100,9 +100,9 @@ class BlockCart extends Module
 		if (sizeof($errors))
 			$smarty->assign('errors', $errors);
 		if (isset($cookie->ajax_blockcart_display))
-			//$smarty->assign('colapseExpandStatus', $cookie->ajax_blockcart_display);
+			$smarty->assign('colapseExpandStatus', $cookie->ajax_blockcart_display);
 			// $smarty->assign('colapseExpandStatus', 'expanded');
-			$smarty->assign('colapseExpandStatus', 'collapsed');
+			// $smarty->assign('colapseExpandStatus', 'collapsed');
 	}
 
 	public function getContent()

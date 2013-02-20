@@ -97,6 +97,7 @@ input[type="range"]::-webkit-slider-thumb,-moz-slider-thumb{
 	margin: 0 auto;
 	text-align:center;
 }
+#product_list p.warning { font:14px "Tahoma"; margin-top:150px; }
 #product_list figure a {  text-align:center; margin-left:20px; }
 #product_list img {
 	border-style:url('../img/assets/product-bg.png');

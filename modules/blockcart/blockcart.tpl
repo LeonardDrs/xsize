@@ -27,6 +27,7 @@
 {*************************************************************************************************************************************}
 {* IMPORTANT : If you change some data here, you have to report these changes in the ./blockcart-json.js (to let ajaxCart available) *}
 {*************************************************************************************************************************************}
+{DEBUG}
 {if $ajax_allowed}
 <script type="text/javascript">
 var CUSTOMIZE_TEXTFIELD = {$CUSTOMIZE_TEXTFIELD};
@@ -49,14 +50,14 @@ var removingLinkText = '{l s='remove this product from my cart' mod='blockcart' 
 		<span class="ajax_cart_no_product mainPrice" {if $cart_qties != 0} style="display:none"{/if}>{l s='(empty)' mod='blockcart'}</span>
 	<h4 id="flecheH">
 		{if $ajax_allowed}
-			<span id="block_cart_expand"></span>
-			<span id="block_cart_collapse" style="display:none;"></span>
+			<span id="block_cart_expand" {if isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded'}class="hidden"{/if}>&nbsp;</span>
+			<span id="block_cart_collapse" {if isset($colapseExpandStatus) && $colapseExpandStatus eq 'collapsed' || !isset($colapseExpandStatus)}class="hidden"{/if}>&nbsp;</span>
 		{/if}
 	</h4>
 	<div class="block_content">
 	<!-- block summary -->
 	<!-- block list of products -->
-	<div id="cart_block_list" class={if isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded' || !$ajax_allowed || !isset($colapseExpandStatus)}"expanded"{else}"collapsed" style="display:none;"{/if}>
+	<div id="cart_block_list" class={if isset($colapseExpandStatus) && $colapseExpandStatus eq 'expanded' || !$ajax_allowed}"expanded"{else}"collapsed" style="display:none;"{/if}>
 	{if $products}
 		<dl class="products">
 		{foreach from=$products item='product' name='myLoop'}
@@ -118,11 +119,6 @@ var removingLinkText = '{l s='remove this product from my cart' mod='blockcart' 
 				{assign var='blockcart_cart_flag' value='Cart::ONLY_WRAPPING'|constant}
 				<span>{l s='Wrapping' mod='blockcart'}</span>
 				<span id="cart_block_wrapping_cost" class="price cart_block_wrapping_cost">{if $priceDisplay == 1}{convertPrice price=$cart->getOrderTotal(false, $blockcart_cart_flag)}{else}{convertPrice price=$cart->getOrderTotal(true, $blockcart_cart_flag)}{/if}</span>
-				<br/>
-			{/if}
-			{if $show_tax && isset($tax_cost)}
-				<span>{l s='Tax' mod='blockcart'}</span>
-				<span id="cart_block_tax_cost" class="price ajax_cart_tax_cost">{$tax_cost}</span>
 				<br/>
 			{/if}
 			<span>{l s='Total :' mod='blockcart'}</span>
