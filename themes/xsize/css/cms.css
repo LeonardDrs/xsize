@@ -100,17 +100,17 @@
 	width:980px;
 }
 
-span{
+.rte span{
 	color:#adacac;
 	font: 16px "Arial Narrow", "Tahoma";
 }
 
-span a{
+.rte span a{
 	text-decoration:none;
 	color:#adacac;
 }
 
-span a:hover{
+.rte span a:hover{
 	text-decoration:underline;
 }
 

@@ -71,8 +71,7 @@ li.address_update,
 */
 
 ul.address {
-	border: dotted 1px #C1C1C1;
-	width: 358px;
+
 	position: relative;
 	display: inline-block;
 	padding: 0px 20px;
@@ -91,7 +90,7 @@ li.address_title{
 	color: #29140C;
 	border-top: solid 1px #E2E0DF;
 	float: none;
-	margin: 40px 0 30px 10px;
+	margin: 0px 0 30px 10px;
 	font-weight: bold;
 	font-size:14px;
 }
@@ -104,3 +103,6 @@ li.address_title{
 	color: #5090B8;
 	margin-bottom: 25px;
 }
+#uladresse2 { margin-left:600px; display:block; margin-top:-18px; }
+#coucou { border: dotted 1px #C1C1C1;
+	width: 900px; height:200px; margin-top:20px;}

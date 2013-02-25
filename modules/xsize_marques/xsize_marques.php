@@ -57,6 +57,7 @@ class xsize_marques extends Module
 /*###################################################################*/
 	function uploade(){
 		var_dump($_POST);
+		/// insertion bdd
 	}
 
 	function upload(){

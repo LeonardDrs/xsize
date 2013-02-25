@@ -54,7 +54,7 @@
 <div id="HOOK_TOP_PAYMENT">{$HOOK_TOP_PAYMENT}</div>
 <section class="page" id="comptes">
 	<section id="panier5">
-		<h2>Choisissez votre mode de paiement :</h2>
+		<h2 id="h2paiement">Choisissez votre mode de paiement :</h2>
 		{if $HOOK_PAYMENT}
 			{if !$opc}<h4>{l s='Please select your preferred payment method to pay the amount of'}&nbsp; {convertPrice price=$total_price} {if $taxes_enabled}{l s='(tax incl.)'}{/if}</h4><br />{/if}
 			{if $opc}<div id="opc_payment_methods-content">{/if}
@@ -64,7 +64,7 @@
 			<p class="warning">{l s='No payment modules have been installed.'}</p>
 		{/if}
 	</section>
-<p class="cart_navigation"><a href="{$link->getPageLink('order.php', true)}?step=2" title="{l s='Previous'}" class="button">&laquo; {l s='Previous'}</a></p>
+<p class="cart_navigation"><a id="previousbuton" href="{$link->getPageLink('order.php', true)}?step=2" title="{l s='Previous'}" class="button">{l s='Previous'}</a></p>
 </section>
 
 

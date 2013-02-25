@@ -1,17 +1,19 @@
 {literal}
 <script type="text/javascript" charset="utf-8"/>
-	function Zoom(e,t,i) {
-		var scrolly = e.layerY*(i.height()/t.height()/2);
-		var scrollx = e.layerX*(i.width()/t.width()/2);
+	function Zoom(e,t,i,$t) {
+		
+		var scrolly = (e.pageY-$t[0].y)*$t.height()/i.height();
+		var scrollx = (e.pageX-$t[0].x)*$t.width()/i.width();
 		i.css('margin-top',-scrolly)
 		i.css('margin-left',-scrollx)
+
 	};
 	$(function(){
 		$('#product_list figure a img').mouseenter(function(e) {
 			$('.zoom_product').remove();
 			var $this=$(this);
 			$this.parent('a').attr('title','');
-			var src=$this.data('largeUrl');
+			var src=$this.data('largeurl');
 			var alt=$this.attr('alt');
 			var $a=$this.parent('a');
 			$a.parents('figure').append("<div class='zoom_product'>").css('position','relative');
@@ -27,7 +29,7 @@
 					$('.zoom_product').remove()
 				})
 				.mousemove(function(e) {
-					Zoom(e,$zthis,$zimg);
+					Zoom(e,$zthis,$zimg,$this);
 				});
 				var $zthis=$('.zoom_product');
 				var $zimg=$zthis.children('img');

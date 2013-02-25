@@ -27,10 +27,11 @@
 {capture name=path}<a href="{$link->getPageLink('my-account.php', true)}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span>{l s='Your personal information'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='Your personal information'}</h1>
+<h1 class="account-title1" id="identity-h1">{l s='Your personal information'}</h1>
 
 {include file="$tpl_dir./errors.tpl"}
 
+<div class="adresses" id="account-intro">
 {if isset($confirmation) && $confirmation}
 	<p class="success">
 		{l s='Your personal information has been successfully updated.'}
@@ -38,42 +39,39 @@
 	</p>
 {else}
 	<h3>{l s='Please do not hesitate to update your personal information if it has changed.'}</h3>
-	<p class="required"><sup>*</sup>{l s='Required field'}</p>
 	<form action="{$link->getPageLink('identity.php', true)}" method="post" class="std">
-		<fieldset>
+		<fieldset id="identityfield">
+			<p class="required" id="champsrequis"><sup>*</sup> : {l s='Required field'}</p>
 			<p class="radio">
-				<span>{l s='Title'}</span>
 				<input type="radio" id="id_gender1" name="id_gender" value="1" {if $smarty.post.id_gender == 1 OR !$smarty.post.id_gender}checked="checked"{/if} />
 				<label for="id_gender1">{l s='Mr.'}</label>
 				<input type="radio" id="id_gender2" name="id_gender" value="2" {if $smarty.post.id_gender == 2}checked="checked"{/if} />
 				<label for="id_gender2">{l s='Ms.'}</label>
 			</p>
 			<p class="required text">
-				<label for="firstname">{l s='First name'}</label>
-				<input type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" /> <sup>*</sup>
+				<label class="labelidentity" for="firstname">{l s='First name'}</label><sup>*</sup>
+				<input type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" /> 
 			</p>
 			<p class="required text">
-				<label for="lastname">{l s='Last name'}</label>
-				<input type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" /> <sup>*</sup>
+				<label class="labelidentity" for="lastname">{l s='Last name'}</label><sup>*</sup>
+				<input type="text" name="lastname" id="lastname" value="{$smarty.post.lastname}" />
+			<p class="required text">
+				<label class="labelidentity" for="email">{l s='E-mail'}</label><sup>*</sup>
+				<input type="text" name="email" id="email" value="{$smarty.post.email}" />
 			</p>
 			<p class="required text">
-				<label for="email">{l s='E-mail'}</label>
-				<input type="text" name="email" id="email" value="{$smarty.post.email}" /> <sup>*</sup>
-			</p>
-			<p class="required text">
-				<label for="old_passwd">{l s='Current Password'}</label>
-				<input type="password" name="old_passwd" id="old_passwd" /> <sup>*</sup>
-			</p>
+				<label class="labelidentity" for="old_passwd">{l s='Current Password'}</label><sup>*</sup>
+				<input type="password" name="old_passwd" id="old_passwd" />
 			<p class="password">
-				<label for="passwd">{l s='New Password'}</label>
+				<label class="labelidentity" for="passwd">{l s='New Password'}</label>
 				<input type="password" name="passwd" id="passwd" />
 			</p>
 			<p class="password">
-				<label for="confirmation">{l s='Confirmation'}</label>
+				<label class="labelidentity" for="confirmation">{l s='Confirmation'}</label>
 				<input type="password" name="confirmation" id="confirmation" />
 			</p>
 			<p class="select">
-				<label>{l s='Date of Birth'}</label>
+				<label class="labelidentity" id="identitybirth">{l s='Date of Birth'}<sup>*</sup></label>
 				<select name="days" id="days">
 					<option value="">-</option>
 					{foreach from=$days item=v}
@@ -109,25 +107,27 @@
 			</p>
 			{if $newsletter}
 			<p class="checkbox">
-				<input type="checkbox" id="newsletter" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if} />
-				<label for="newsletter">{l s='Sign up for our newsletter'}</label>
+				<input type="checkbox" id="newsletter-identity" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if} />
+				<label class="labelidentity" for="newsletter-identity">{l s='Sign up for our newsletter'}</label>
 			</p>
-			<p class="checkbox">
+			<!--<p class="checkbox">
 				<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == 1} checked="checked"{/if} />
 				<label for="optin">{l s='Receive special offers from our partners'}</label>
-			</p>
+			</p>-->
 			{/if}
 			<p class="submit">
-				<input type="submit" class="button" name="submitIdentity" value="{l s='Save'}" />
+				<input id="identitysubmit" type="submit" class="button" name="submitIdentity" value="{l s='Save'}" />
 			</p>
 		</fieldset>
 	</form>
-	<p id="security_informations">
+	<!--<p id="security_informations">
 		{l s='[Insert customer data privacy clause or law here, if applicable]'}
-	</p>
+	</p>-->
 {/if}
 
-<ul class="footer_links">
-	<li><a href="{$link->getPageLink('my-account.php', true)}"><img src="{$img_dir}icon/my-account.gif" alt="" class="icon" /></a><a href="{$link->getPageLink('my-account.php', true)}">{l s='Back to Your Account'}</a></li>
-	<li><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /></a><a href="{$base_dir}">{l s='Home'}</a></li>
+<ul class="footer_links" id="account-homeul">
+	<li><a href="{$link->getPageLink('my-account.php', true)}"><img src="{$img_dir}assets/account.png" alt="{l s='My account'}"/></a><a class="account-a" href="{$link->getPageLink('my-account.php', true)}" title="{l s='My account'}">{l s='My account'}</a></li>
+	<hr/>
 </ul>
+<p id="account-homep"><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}assets/account-home.png" alt="{l s='Home'}"/></a><a class="account-a" id="account-blue" href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>
+</div>

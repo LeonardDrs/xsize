@@ -26,6 +26,7 @@
 */
 
 /* Debug only */
+@ini_set('memory_limit','64M');
 @ini_set('display_errors', 'off');
 define('_PS_DEBUG_SQL_', false);
 

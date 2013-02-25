@@ -57,56 +57,47 @@
 	margin-bottom:160px;
 }
 
-#authentication #content #login legend a {
+#authentication #contentold #login legend a {
     color:#a7a6a6;
     font:italic 11px "Tahoma";
     padding:0;
     margin:0px 0 0 15px;
 }
 
-#authentication #content #login legend a {
+#authentication #contentold #login legend a {
 	text-decoration:underline;
 }
 
-#authentication #content #infosup input[type="checkbox"] {
+#authentication #contentold #infosup input[type="checkbox"] {
 	margin:30px 0 20px 0;
 }
 
-#authentication #content #adresses, #comptes{
+#authentication #contentold #adresses, #comptes{
     font:13px "Tahoma";
     color:#838282;
     padding:35px 20px;
     margin: 20px 0;
 }
 
-#authentication #content #infosup{
+#authentication #contentold #infosup{
     padding-left:30px;
 	text-align:left;
 }
-#authentication #content  h2#infoperso{
+#authentication #contentold  h2#infoperso{
 	width:220px;
 	text-align:left;
 }
-#authentication #content  h2#votreadresse{
+#authentication #contentold  h2#votreadresse{
 	width:110px;
 	text-align:left;
 	margin-bottom:63px;
 }
 
-#authentication #content h1{
-    float:left;
-	font:bold 14px "Tahoma";
-	color:#838282;
-	margin:12px 30px 0 0;
-	padding: 5px;
-	width:115px;;
-	border-top:solid 1px;
-	border-bottom:solid 1px;
 	border-color:#e6e6e6;
 	text-align:center;
 }
 
-#authentication #content h2{
+#authentication #contentold h2{
 	font:800 14px "Tahoma";
 	color:#8e8e8e;
 	width:140px;
@@ -115,10 +106,10 @@
 	text-align:center;
 	float:left;
 }
-#authentication #content em.current {
+#authentication #contentold em.current {
 	background:url('../img/assets/pannier-num.png') no-repeat 1px 0px;
 }
-#authentication #content h2 em {
+#authentication #contentold h2 em {
 	color:#fff;
 	background:url('../img/assets/pannier-num-disabled.png') no-repeat 1px 0px;
 	width:22px;
@@ -129,7 +120,7 @@
 }
 
 
-#authentication #content hr{
+#authentication #contentold hr{
 	border:none;
 	float:left;
 	background:url('../img/assets/sep-vertical.png') no-repeat;
@@ -139,7 +130,7 @@
 	margin:0 ;
 }
 
-#authentication #content{
+#authentication #contentold{
 	position:relative;
 	margin:0 auto;
 	width:980px;
@@ -148,11 +139,11 @@
 	text-align:right;
 }
 
-#authentication #content #recap {
+#authentication #contentold #recap {
 	height:70px;
 }
 
-#authentication #content pute span{
+#authentication #contentold pute span{
 	color:#adacac;
 	font: 16px "Arial Narrow", "Tahoma";
 	position:relative;
@@ -160,31 +151,31 @@
 	margin-bottom:25px;
 }
 
-#authentication #content span a{
+#authentication #contentold span a{
 	text-decoration:none;
 	color:#adacac;
 }
 .navigation-pipe, .navigation_page, .ariane { color:#adacac; font: 14px Tahoma, sans-serif  }
-#authentication #content a:hover{
+#authentication #contentold a:hover{
 	text-decoration:underline;
 }
 
-#authentication #content .home{
+#authentication #contentold .home{
 	background: url('../img/assets/home.png') no-repeat 0 0;
 	padding-left:25px;
 }
 
-#authentication #content .right{
+#authentication #contentold .right{
 	float:right;
 	margin:40px 30px 0 0;
 }
 
-#authentication #content .right p{
+#authentication #contentold .right p{
     padding:5px 0;
     margin:0;
     border-bottom:solid 1px #edeced;
 }
-#authentication #content #total{
+#authentication #contentold #total{
 	font-weight:bold;
 	border:none;
 	margin-bottom:20px;
@@ -195,14 +186,14 @@
 	border-spacing: 0;
 }
 
-#authentication #content p{
+#authentication #contentold p{
 	font:13px "Tahoma";
 	color:#595959;
 	margin:0 0 15px 15px;
 	text-align:left;
 }
 
-#authentication #content p.center{
+#authentication #contentold p.center{
 	margin-left:0;
 	text-align:center;
 }
@@ -286,7 +277,7 @@
 	-ms-border-radius:5px;
 	padding-left:10px;
 }
-#authentication #content p.lastxt{ margin-bottom:0;}
+#authentication #contentold p.lastxt{ margin-bottom:0;}
 .lost_password a { color:#a7a6a6;
     font:italic 11px "Tahoma";
     padding:0;
@@ -294,3 +285,5 @@
     }
 #SubmitLogin { background:url("../img/assets/next.png") 0 0 no-repeat; border:none; width:111px; height:44px; color:#fff; float:right; cursor:pointer; }
 #SubmitCreate { background:url("../img/assets/creer.png") 1px 0px no-repeat; border:none; height:40px; width:136px; float:right; color:#fff; cursor:pointer; margin:42px 0 0 0; padding:0;}
+#authentication form div#champsrequis { margin-top:10px; }
+#superform { margin-top:50px; border-radius:10px; }

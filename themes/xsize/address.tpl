@@ -98,8 +98,10 @@ $(function(){ldelim}
 {capture name=path}{l s='Your addresses'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='Your addresses'}</h1>
+<h1 class="account-title1" id="vosadresse">{l s='Your addresses'}</h1>
 
+{include file="$tpl_dir./errors.tpl"}
+<div class="adresses" id="account-intro">
 <h3>
 {if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
 	{l s='Modify address'}
@@ -112,14 +114,11 @@ $(function(){ldelim}
 	{l s='To add a new address, please fill out the form below.'}
 {/if}
 </h3>
-
-{include file="$tpl_dir./errors.tpl"}
-
 <form action="{$link->getPageLink('address.php', true)}" method="post" class="std">
-	<fieldset>
-		<h3>{if isset($id_address)}{l s='Your address'}{else}{l s='New address'}{/if}</h3>
+	<fieldset id="identityfield">
+		<p class="required" id="champsrequis"><sup>*</sup> : {l s='Required field'}</p>
 		<p class="required text dni">
-			<label for="dni">{l s='Identification number'}</label>
+			<label class="labelidentity" for="dni">{l s='Identification number'}</label>
 			<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni|escape:'htmlall':'UTF-8'}{/if}{/if}" />
 			<span class="form_info">{l s='DNI / NIF / NIE'}</span>
 			<sup>*</sup>
@@ -133,7 +132,7 @@ $(function(){ldelim}
 	{/if}
 		<div id="vat_number">
 			<p class="text">
-				<label for="vat_number">{l s='VAT number'}</label>
+				<label class="labelidentity" for="vat_number">{l s='VAT number'}</label>
 				<input type="text" class="text" name="vat_number" value="{if isset($smarty.post.vat_number)}{$smarty.post.vat_number}{else}{if isset($address->vat_number)}{$address->vat_number|escape:'htmlall':'UTF-8'}{/if}{/if}" />
 			</p>
 		</div>
@@ -142,57 +141,51 @@ $(function(){ldelim}
 		{foreach from=$ordered_adr_fields item=field_name}
 		{if $field_name eq 'company'}
 		<p class="text">
-			<label for="company">{l s='Company'}</label>
+			<label class="labelidentity" for="company">{l s='Company'}</label>
 			<input type="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{else}{if isset($address->company)}{$address->company|escape:'htmlall':'UTF-8'}{/if}{/if}" />
 		</p>
 		{/if}
 		{if $field_name eq 'firstname'}
 		<p class="required text">
-			<label for="firstname">{l s='First name'}</label>
+			<label class="labelidentity" for="firstname">{l s='First name'}</label><sup>*</sup>
 			<input type="text" name="firstname" id="firstname" value="{if isset($smarty.post.firstname)}{$smarty.post.firstname}{else}{if isset($address->firstname)}{$address->firstname|escape:'htmlall':'UTF-8'}{/if}{/if}" />
-			<sup>*</sup>
 		</p>
 		{/if}
 		{if $field_name eq 'lastname'}
 		<p class="required text">
-			<label for="lastname">{l s='Last name'}</label>
+			<label class="labelidentity" for="lastname">{l s='Last name'}</label><sup>*</sup>
 			<input type="text" id="lastname" name="lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{else}{if isset($address->lastname)}{$address->lastname|escape:'htmlall':'UTF-8'}{/if}{/if}" />
-			<sup>*</sup>
 		</p>
 		{/if}
 		{if $field_name eq 'address1'}
 		<p class="required text">
-			<label for="address1">{l s='Address'}</label>
+			<label class="labelidentity" for="address1">{l s='Address'}</label><sup>*</sup>
 			<input type="text" id="address1" name="address1" value="{if isset($smarty.post.address1)}{$smarty.post.address1}{else}{if isset($address->address1)}{$address->address1|escape:'htmlall':'UTF-8'}{/if}{/if}" />
-			<sup>*</sup>
 		</p>
 		{/if}
 		{if $field_name eq 'address2'}
 		<p class="required text">
-			<label for="address2">{l s='Address (Line 2)'}</label>
+			<label class="labelidentity" for="address2">{l s='Address (Line 2)'}</label>
 			<input type="text" id="address2" name="address2" value="{if isset($smarty.post.address2)}{$smarty.post.address2}{else}{if isset($address->address2)}{$address->address2|escape:'htmlall':'UTF-8'}{/if}{/if}" />
 		</p>
 		{/if}
 		{if $field_name eq 'postcode'}
 		<p class="required postcode text">
-			<label for="postcode">{l s='Zip / Postal Code'}</label>
+			<label class="labelidentity" for="postcode">{l s='Zip / Postal Code'}</label><sup>*</sup>
 			<input type="text" id="postcode" name="postcode" value="{if isset($smarty.post.postcode)}{$smarty.post.postcode}{else}{if isset($address->postcode)}{$address->postcode|escape:'htmlall':'UTF-8'}{/if}{/if}" onkeyup="$('#postcode').val($('#postcode').val().toUpperCase());" />
-			<sup>*</sup>
 		</p>
 		{/if}
 		{if $field_name eq 'city'}
 		<p class="required text">
-			<label for="city">{l s='City'}</label>
+			<label class="labelidentity" for="city">{l s='City'}</label><sup>*</sup>
 			<input type="text" name="city" id="city" value="{if isset($smarty.post.city)}{$smarty.post.city}{else}{if isset($address->city)}{$address->city|escape:'htmlall':'UTF-8'}{/if}{/if}" maxlength="64" />
-			<sup>*</sup>
 		</p>
 		<!-- If the merchant has not updated his layout address, country has to be verified - however it's deprecated -->
 		{/if}
 		{if $field_name eq 'Country:name' || $field_name eq 'country'}
 		<p class="required select">
-			<label for="id_country">{l s='Country'}</label>
+			<label class="labelidentity" for="id_country">{l s='Country'}</label><sup>*</sup>
 			<select id="id_country" name="id_country">{$countries_list}</select>
-			<sup>*</sup>
 		</p>
 		{if isset($vatnumber_ajax_call) && $vatnumber_ajax_call}
 		<script type="text/javascript">
@@ -225,52 +218,54 @@ $(function(){ldelim}
 		{if $field_name eq 'State:name' || $field_name eq 'state'}
 		{assign var="stateExist" value="true"}
 		<p class="required id_state select">
-			<label for="id_state">{l s='State'}</label>
+			<label class="labelidentity" for="id_state">{l s='State'}</label><sup>*</sup>
 			<select name="id_state" id="id_state">
 				<option value="">-</option>
 			</select>
-			<sup>*</sup>
 		</p>
 		{/if}
 		{/foreach}
 		<p><input type="hidden" name="token" value="{$token}" /></p>
 		{if $stateExist eq "false"}
 		<p class="required id_state select">
-			<label for="id_state">{l s='State'}</label>
+			<label class="labelidentity" for="id_state">{l s='State'}</label><sup>*</sup>
 			<select name="id_state" id="id_state">
 				<option value="">-</option>
 			</select>
-			<sup>*</sup>
 		</p>
-		{/if}
+		{/if}<!--
 		<p class="textarea">
-			<label for="other">{l s='Additional information'}</label>
+			<label class="labelidentity" for="other">{l s='Additional information'}</label>
 			<textarea id="other" name="other" cols="26" rows="3">{if isset($smarty.post.other)}{$smarty.post.other}{else}{if isset($address->other)}{$address->other|escape:'htmlall':'UTF-8'}{/if}{/if}</textarea>
 		</p>
-		<p style="margin-left:50px;">{l s='You must register at least one phone number'} <sup style="color:red;">*</sup></p>
+		<p style="margin-left:50px;">{l s='You must register at least one phone number'} <sup>*</sup></p>-->
 		<p class="text">
-			<label for="phone">{l s='Home phone'}</label>
+			<label class="labelidentity" for="phone">{l s='Home phone'}</label>
 			<input type="text" id="phone" name="phone" value="{if isset($smarty.post.phone)}{$smarty.post.phone}{else}{if isset($address->phone)}{$address->phone|escape:'htmlall':'UTF-8'}{/if}{/if}" />
 		</p>
 		<p class="text">
-			<label for="phone_mobile">{l s='Mobile phone'}</label>
+			<label class="labelidentity" for="phone_mobile">{l s='Mobile phone'}</label>
 			<input type="text" id="phone_mobile" name="phone_mobile" value="{if isset($smarty.post.phone_mobile)}{$smarty.post.phone_mobile}{else}{if isset($address->phone_mobile)}{$address->phone_mobile|escape:'htmlall':'UTF-8'}{/if}{/if}" />
 		</p>
 		<p class="required text" id="address_alias">
-			<label for="alias">{l s='Assign an address title for future reference'}</label>
+			<label class="labelidentity" for="alias">{l s='Assign an address title for future reference'}</label>
 			<input type="text" id="alias" name="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{else}{if isset($address->alias)}{$address->alias|escape:'htmlall':'UTF-8'}{/if}{if isset($select_address)}{else}{l s='My address'}{/if}{/if}" />
-			<sup>*</sup>
+		</p>
+		<p class="submit2 address_navigation" style="padding:0">
+			{if isset($id_address)}<input type="hidden" name="id_address" value="{$id_address|intval}" />{/if}
+			{if isset($back)}<input type="hidden" name="back" value="{$back}" />{/if}
+			{if isset($mod)}<input type="hidden" name="mod" value="{$mod}" />{/if}
+			{if isset($select_address)}<input type="hidden" name="select_address" value="{$select_address|intval}" />{/if}
+			<!--<a class="button" href="{$link->getPageLink('addresses.php', true)}" title="{l s='Previous'}">&laquo; {l s='Previous'}</a>-->
+			<input id="identitysubmit" type="submit" name="submitAddress" id="submitAddress" value="{l s='Save'}" class="button" />
+			<br class="clear"/>
 		</p>
 	</fieldset>
-	<p class="submit2 address_navigation" style="padding:0">
-		{if isset($id_address)}<input type="hidden" name="id_address" value="{$id_address|intval}" />{/if}
-		{if isset($back)}<input type="hidden" name="back" value="{$back}" />{/if}
-		{if isset($mod)}<input type="hidden" name="mod" value="{$mod}" />{/if}
-		{if isset($select_address)}<input type="hidden" name="select_address" value="{$select_address|intval}" />{/if}
-		<a class="button" href="{$link->getPageLink('addresses.php', true)}" title="{l s='Previous'}">&laquo; {l s='Previous'}</a>
-		<input type="submit" name="submitAddress" id="submitAddress" value="{l s='Save'}" class="button" />
-		<br class="clear"/>
-	</p>
-	<p class="required"><sup>*</sup>{l s='Required field'}</p>
 </form>
 
+<ul class="footer_links" id="account-homeul">
+	<li><a href="{$link->getPageLink('my-account.php', true)}"><img src="{$img_dir}assets/account.png" alt="{l s='My account'}"/></a><a class="account-a" href="{$link->getPageLink('my-account.php', true)}" title="{l s='My account'}">{l s='My account'}</a></li>
+	<hr/>
+</ul>
+<p id="account-homep"><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}assets/account-home.png" alt="{l s='Home'}"/></a><a class="account-a" id="account-blue" href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>
+</div>

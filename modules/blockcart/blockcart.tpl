@@ -27,7 +27,6 @@
 {*************************************************************************************************************************************}
 {* IMPORTANT : If you change some data here, you have to report these changes in the ./blockcart-json.js (to let ajaxCart available) *}
 {*************************************************************************************************************************************}
-{DEBUG}
 {if $ajax_allowed}
 <script type="text/javascript">
 var CUSTOMIZE_TEXTFIELD = {$CUSTOMIZE_TEXTFIELD};

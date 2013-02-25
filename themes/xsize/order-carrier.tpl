@@ -109,18 +109,18 @@
 		</section>
 		{if $conditions AND $cms_id}
 			<p class="checkbox">
-				<input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if} />
+				<input type="checkbox" name="cgv" id="cgv" value="1" />
 				<label for="cgv">{l s='I agree to the terms of service and adhere to them unconditionally.'}</label> <a href="{$link_conditions}" class="iframe">{l s='(read)'}</a>
 			</p>
 			<script type="text/javascript">$('a.iframe').fancybox();</script>
 		{/if}
 
-		<p class="cart_navigation submit">
+		<p class="cart_navigation submit" id="kikoolol">
 			<input type="hidden" name="step" value="3" />
 			<input type="hidden" name="back" value="{$back}" />
-			<a href="{$link->getPageLink('order.php', true)}{if !$is_guest}?step=1{if $back}&back={$back}{/if}{/if}" title="{l s='Previous'}" class="button">&laquo; {l s='Previous'}</a>
 			<!-- <a id="valid" href="{$link->getPageLink('order.php', true)}{if !$is_guest}?step=3{if $back}&back={$back}{/if}{/if}" title="{l s='Next'}" class="button"><img src="{$img_dir}/assets/valider.png" alt="Valider"/></a> -->
-			<input type="submit" name="processCarrier" value="{l s='Next'}" class="exclusive" />
+			<input type="submit" name="processCarrier" value="{l s='Next'}" class="exclusive" id="processCarrier"/>
+			<a id="previousbuton" href="{$link->getPageLink('order.php', true)}{if !$is_guest}?step=1{if $back}&back={$back}{/if}{/if}" title="{l s='Previous'}" class="button">{l s='Previous'}</a>
 		</p>
 	</form>
 </section>

@@ -29,19 +29,43 @@
 	<div id="block-order-detail">
 {/if}
 <form action="{if isset($opc) && $opc}{$link->getPageLink('order-opc.php', true)}{else}{$link->getPageLink('order.php', true)}{/if}" method="post" class="submit">
-	<div>
+	<div style="height:100px;">
 		<input type="hidden" value="{$order->id}" name="id_order"/>
-		<h4>
+		<h4 id="h3formajax">
 			{l s='Order placed on'} {dateFormat date=$order->date_add full=0}
-			<input type="submit" value="{l s='Reorder'}" name="submitReorder" class="button exclusive" style="float:right"/>
 		</h4>
+		<input type="submit" value="{l s='Reorder'}" name="submitReorder" class="button exclusive" style="float:right; margin-top:30px;"/>
 	</div>
 </form>
 
 {if count($order_history)}
-<p class="bold">{l s='Follow your order step by step'}</p>
+<!--<p class="bold">{l s='Follow your order step by step'}</p>-->
 <div class="table_block">
-	<table class="detail_step_by_step std">
+	<table id="tablooo" class="detail_step_by_step std">
+		<tr>
+			<td>{l s='Date'}</td>
+			<td>:</td>
+			<td>{l s='Status'}</td>
+		</tr>
+		<tr>
+			<td>{l s='Commande'}</td>
+			<td>:</td>
+			<td><a class="color-myaccount" href="#">{l s='#'}{$order->id|string_format:"%06d"}</a></td>
+		</tr>
+		<tr>
+			{if $carrier->id}
+			<td>{l s='Transporteur'} </td>
+			<td>:</td>
+			<td>{if $carrier->name == "0"}{$shop_name|escape:'htmlall':'UTF-8'}{else}{$carrier->name|escape:'htmlall':'UTF-8'}{/if}</td>
+			{/if}
+		</tr>
+		<tr>
+			<td>{l s='Paiement'} </td>
+			<td>:</td>
+			<td>{$order->payment|escape:'htmlall':'UTF-8'}</td>
+		</tr>
+	</table>
+	<!--<table class="detail_step_by_step std">
 		<thead>
 			<tr>
 				<th class="first_item">{l s='Date'}</th>
@@ -56,7 +80,7 @@
 			</tr>
 		{/foreach}
 		</tbody>
-	</table>
+	</table>-->
 </div>
 {/if}
 
@@ -65,11 +89,11 @@
 <a href="{$followup|escape:'htmlall':'UTF-8'}">{$followup|escape:'htmlall':'UTF-8'}</a>
 {/if}
 
-<p class="bold">{l s='Order:'} <span class="color-myaccount">{l s='#'}{$order->id|string_format:"%06d"}</span></p>
-{if $carrier->id}<p class="bold">{l s='Carrier:'} {if $carrier->name == "0"}{$shop_name|escape:'htmlall':'UTF-8'}{else}{$carrier->name|escape:'htmlall':'UTF-8'}{/if}</p>{/if}
-<p class="bold">{l s='Payment method:'} <span class="color-myaccount">{$order->payment|escape:'htmlall':'UTF-8'}</span></p>
+<!--<p class="bold">{l s='Order:'} <span class="color-myaccount">{l s='#'}{$order->id|string_format:"%06d"}</span></p>-->
+<!--{if $carrier->id}<p class="bold">{l s='Carrier:'} {if $carrier->name == "0"}{$shop_name|escape:'htmlall':'UTF-8'}{else}{$carrier->name|escape:'htmlall':'UTF-8'}{/if}</p>{/if}-->
+<!--<p class="bold">{l s='Payment method:'} <span class="color-myaccount">{$order->payment|escape:'htmlall':'UTF-8'}</span></p>-->
 {if $invoice AND $invoiceAllowed}
-<p>
+<p id="facturepdf">
 	<img src="{$img_dir}icon/pdf.gif" alt="" class="icon" />
 	<a href="{$link->getPageLink('pdf-invoice.php', true)}?id_order={$order->id|intval}{if $is_guest}&secure_key={$order->secure_key}{/if}">{l s='Download your invoice as a .PDF file'}</a>
 </p>
@@ -82,7 +106,8 @@
 	<p>{l s='Message:'} {$order->gift_message|nl2br}</p>
 {/if}
 <br />
-<ul class="address item" {if $order->isVirtual()}style="display:none;"{/if}>
+<div id="coucou">
+<ul class="address item" id="uladresse" {if $order->isVirtual()}style="display:none;"{/if}>
 	<li class="address_title">{l s='Invoice'}</li>
 	{foreach from=$inv_adr_fields name=inv_loop item=field_item}
 		{if $field_item eq "company" && isset($address_invoice->company)}<li class="address_company">{$address_invoice->company|escape:'htmlall':'UTF-8'}</li>
@@ -95,7 +120,7 @@
 	
 	{/foreach}
 </ul>
-<ul class="address alternate_item {if $order->isVirtual()}full_width{/if}">
+<ul class="address alternate_item" id="uladresse2" {if $order->isVirtual()}full_width{/if}">
 	<li class="address_title">{l s='Delivery'}</li>
 	{foreach from=$dlv_adr_fields name=dlv_loop item=field_item}
 		{if $field_item eq "company" && isset($address_delivery->company)}<li class="address_company">{$address_delivery->company|escape:'htmlall':'UTF-8'}</li>
@@ -107,12 +132,13 @@
 		{/if}
 	{/foreach}
 </ul>
+</div>
 {$HOOK_ORDERDETAILDISPLAYED}
 {if !$is_guest}<form action="{$link->getPageLink('order-follow.php', true)}" method="post">{/if}
-<!-- 
+
 <div id="order-detail-content" class="table_block">
-	<table class="std">
-		<thead>
+	<table class="std" id="table-recap">
+		<thead >
 			<tr>
 				{if $return_allowed}<th class="first_item"><input type="checkbox" /></th>{/if}
 				<th class="{if $return_allowed}item{else}first_item{/if}">{l s='Reference'}</th>
@@ -124,39 +150,39 @@
 		</thead>
 		<tfoot>
 			{if $priceDisplay && $use_tax}
-				<tr class="item">
+				<tr id="ligne1" class="item">
 					<td colspan="{if $return_allowed}6{else}5{/if}">
-						{l s='Total products (tax excl.):'} <span class="price">{displayWtPriceWithCurrency price=$order->getTotalProductsWithoutTaxes() currency=$currency}</span>
+						{l s='Total products (tax excl.):'} <span class="price2">{displayWtPriceWithCurrency price=$order->getTotalProductsWithoutTaxes() currency=$currency}</span>
 					</td>
 				</tr>
 			{/if}
-			<tr class="item">
+			<tr id="ligne1" class="item">
 				<td colspan="{if $return_allowed}6{else}5{/if}">
-					{l s='Total products'} {if $use_tax}{l s='(tax incl.)'}{/if}: <span class="price">{displayWtPriceWithCurrency price=$order->getTotalProductsWithTaxes() currency=$currency}</span>
+					{l s='Total products'} {if $use_tax}{l s='(tax incl.)'}{/if}: <span class="price2">{displayWtPriceWithCurrency price=$order->getTotalProductsWithTaxes() currency=$currency}</span>
 				</td>
 			</tr>
 			{if $order->total_discounts > 0}
-			<tr class="item">
+			<tr id="ligne1" class="item">
 				<td colspan="{if $return_allowed}6{else}5{/if}">
 					{l s='Total vouchers:'} <span class="price-discount">{displayWtPriceWithCurrency price=$order->total_discounts currency=$currency}</span>
 				</td>
 			</tr>
 			{/if}
 			{if $order->total_wrapping > 0}
-			<tr class="item">
+			<tr id="ligne1" class="item">
 				<td colspan="{if $return_allowed}6{else}5{/if}">
 					{l s='Total gift-wrapping:'} <span class="price-wrapping">{displayWtPriceWithCurrency price=$order->total_wrapping currency=$currency}</span>
 				</td>
 			</tr>
 			{/if}
-			<tr class="item">
+			<tr id="ligne1" class="item">
 				<td colspan="{if $return_allowed}6{else}5{/if}">
 					{l s='Total shipping'} {if $use_tax}{l s='(tax incl.)'}{/if}: <span class="price-shipping">{displayWtPriceWithCurrency price=$order->total_shipping currency=$currency}</span>
 				</td>
 			</tr>
-			<tr class="item">
+			<tr id="ligne1" class="item">
 				<td colspan="{if $return_allowed}6{else}5{/if}">
-					{l s='Total:'} <span class="price">{displayWtPriceWithCurrency price=$order->total_paid currency=$currency}</span>
+					{l s='Total:'} <span class="price2">{displayWtPriceWithCurrency price=$order->total_paid currency=$currency}</span>
 				</td>
 			</tr>
 		</tfoot>
@@ -166,7 +192,6 @@
 				{assign var='productId' value=$product.product_id}
 				{assign var='productAttributeId' value=$product.product_attribute_id}
 				{if isset($customizedDatas.$productId.$productAttributeId)}{assign var='productQuantity' value=$product.product_quantity-$product.customizationQuantityTotal}{else}{assign var='productQuantity' value=$product.product_quantity}{/if}
-				<!-- Customized products 
 				{if isset($customizedDatas.$productId.$productAttributeId)}
 					<tr class="item">
 						{if $return_allowed}<td class="order_cb"></td>{/if}
@@ -230,7 +255,6 @@
 					</tr>
 					{/foreach}
 				{/if}
-				<!-- Classic products 
 				{if $product.product_quantity > $product.customizationQuantityTotal}
 					<tr class="item">
 						{if $return_allowed}<td class="order_cb"><input type="checkbox" id="cb_{$product.id_order_detail|intval}" name="ids_order_detail[{$product.id_order_detail|intval}]" value="{$product.id_order_detail|intval}" /></td>{/if}
@@ -287,7 +311,7 @@
 		</tbody>
 	</table>
 </div>
- -->
+<!--
 <br />
 {if !$is_guest}
 	{if $return_allowed}
@@ -344,8 +368,8 @@
 			{/foreach}
 			</ol>
 		</div>
-	{/if}
-	<form action="{$link->getPageLink('order-detail.php', true)}" method="post" class="std" id="sendOrderMessage">
+	{/if}-->
+	<!--<form action="{$link->getPageLink('order-detail.php', true)}" method="post" class="std formquitue" id="sendOrderMessage">
 		<p class="bold">{l s='Add a message:'}</p>
 		<p>{l s='If you would like to add a comment about your order, please write it below.'}</p>
 		<p class="textarea">
@@ -355,7 +379,7 @@
 			<input type="hidden" name="id_order" value="{$order->id|intval}" />
 			<input type="submit" class="button" name="submitMessage" value="{l s='Send'}"/>
 		</p>
-	</form>
+	</form>-->
 {else}
 <p><img src="{$img_dir}icon/infos.gif" alt="" class="icon" />&nbsp;{l s='You cannot make a merchandise return with a guest account'}</p>
 {/if}

@@ -90,16 +90,16 @@
 {capture name=path}<a href="{$link->getPageLink('my-account.php', true)}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span>{l s='My addresses'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='My addresses'}</h1>
-<p>{l s='Please configure the desired billing and delivery addresses to be preselected when placing an order. You may also add additional addresses, useful for sending gifts or receiving your order at the office.'}</p>
+<h1 class="account-title1" id="account-h1">{l s='My addresses'}</h1>
 
 {if isset($multipleAddresses) && $multipleAddresses}
-<div class="addresses">
+<div class="adresses" id="account-intro">
+	<p id="adresses-intro-p">{l s='Please configure the desired billing and delivery addresses to be preselected when placing an order. You may also add additional addresses, useful for sending gifts or receiving your order at the office.'}</p>
 	<h3>{l s='Your addresses are listed below.'}</h3>
-	<p>{l s='Be sure to update them if they have changed.'}</p>
+	<!--<p>{l s='Be sure to update them if they have changed.'}</p>-->
 	{assign var="adrs_style" value=$addresses_style}
 	{foreach from=$multipleAddresses item=address name=myLoop}
-		<ul class="address {if $smarty.foreach.myLoop.last}last_item{elseif $smarty.foreach.myLoop.first}first_item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{else}item{/if}">
+		<ul id="ul-liste25" class="address {if $smarty.foreach.myLoop.last}last_item{elseif $smarty.foreach.myLoop.first}first_item{/if} {if $smarty.foreach.myLoop.index % 2}alternate_item{else}item{/if}">
 			<li class="address_title">{$address.object.alias}</li>
 			{foreach from=$address.ordered name=adr_loop item=pattern}
 				{assign var=addressKey value=" "|explode:$pattern}
@@ -111,19 +111,20 @@
 				{/foreach}
 				</li>
 			{/foreach}
-			<li class="address_update"><a href="{$link->getPageLink('address.php', true)}?id_address={$address.object.id|intval}" title="{l s='Update'}">{l s='Update'}</a></li>
-			<li class="address_delete"><a href="{$link->getPageLink('address.php', true)}?id_address={$address.object.id|intval}&amp;delete" onclick="return confirm('{l s='Are you sure?'}');" title="{l s='Delete'}">{l s='Delete'}</a></li>
+			<li class="address_update" id="adresse-update"><a href="{$link->getPageLink('address.php', true)}?id_address={$address.object.id|intval}" title="{l s='Update'}">{l s='Update'}</a></li>
+			<li class="address_delete" id="adresse-delete"><a href="{$link->getPageLink('address.php', true)}?id_address={$address.object.id|intval}&amp;delete" onclick="return confirm('{l s='Are you sure?'}');" title="{l s='Delete'}">{l s='Delete'}</a></li>
 		</ul>
 	{/foreach}
 	<p class="clear" />
-</div>
 {else}
 	<p class="warning">{l s='No addresses available.'}&nbsp;<a href="{$link->getPageLink('address.php', true)}">{l s='Add new address'}</a></p>
 {/if}
 
-<div class="clear address_add"><a href="{$link->getPageLink('address.php', true)}" title="{l s='Add an address'}" class="button_large">{l s='Add an address'}</a></div>
+<div class="clear address_add"><a id="addadresse" href="{$link->getPageLink('address.php', true)}" title="{l s='Add an address'}" class="button_large">+ {l s='Add an address'}</a></div>
 
-<ul class="footer_links">
-	<li><a href="{$link->getPageLink('my-account.php', true)}"><img src="{$img_dir}icon/my-account.gif" alt="" class="icon" /></a><a href="{$link->getPageLink('my-account.php', true)}">{l s='Back to Your Account'}</a></li>
-	<li><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /></a><a href="{$base_dir}">{l s='Home'}</a></li>
+<ul class="footer_links" id="account-homeul">
+	<li><a href="{$link->getPageLink('my-account.php', true)}"><img src="{$img_dir}assets/account.png" alt="{l s='My account'}"/></a><a class="account-a" href="{$link->getPageLink('my-account.php', true)}" title="{l s='My account'}">{l s='My account'}</a></li>
+	<hr/>
 </ul>
+<p id="account-homep"><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}assets/account-home.png" alt="{l s='Home'}"/></a><a class="account-a" id="account-blue" href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>
+</div>

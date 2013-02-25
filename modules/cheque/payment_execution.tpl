@@ -30,7 +30,6 @@
 <h2>{l s='Order summary' mod='cheque'}</h2>
 
 {assign var='current_step' value='payment'}
-{include file="$tpl_dir./order-steps.tpl"}
 
 {if isset($nbProducts) && $nbProducts <= 0}
 	<p class="warning">{l s='Your shopping cart is empty.'}</p>

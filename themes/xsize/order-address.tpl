@@ -173,7 +173,7 @@
 	<ul class="address alternate_item {if $cart->isVirtualCart()}full_width{/if}" id="address_invoice">
 	</ul>
 	<section id="infosup">
-		<p class="address_delivery select">
+		<p class="address_delivery select" id="blabla">
 			<label for="id_address_delivery">{l s='Choose a delivery address:'}</label>
 			<select name="id_address_delivery" id="id_address_delivery" class="address_select" onchange="updateAddressesDisplay();{if $opc}updateAddressSelection();{/if}">
 
@@ -199,7 +199,9 @@
 			<input type="checkbox" name="same" id="addressesAreEquals" value="1" onclick="updateAddressesDisplay();{if $opc}updateAddressSelection();{/if}" {if $cart->id_address_invoice == $cart->id_address_delivery || $addresses|@count == 1}checked="checked"{/if} />
 			<label for="addressesAreEquals">{l s='Use the same address for billing.'}</label>
 		<a href="{$link->getPageLink('address.php', true)}?back={$back_order_page}?step=1{if $back}&mod={$back}{/if}">+   Ajouter une nouvelle adresse</a>
-		<a href="{$link->getPageLink($back_order_page, true)}?step=0{if $back}&back={$back}{/if}" title="{l s='Previous'}" class="button">&laquo; {l s='Previous'}</a>
-		<a href="{$link->getPageLink($back_order_page, true)}?step=2{if $back}&back={$back}{/if}" title="{l s='Next'}" class="button"><img id="valid" src="{$img_dir}/assets/valider.png" alt="valider"/></a>
+		<p>
+			<a id="previousbuton" href="{$link->getPageLink($back_order_page, true)}?step=0{if $back}&back={$back}{/if}" title="{l s='Previous'}" class="button">{l s='Previous'}</a>
+			<a href="{$link->getPageLink($back_order_page, true)}?step=2{if $back}&back={$back}{/if}" title="{l s='Next'}" class="button"><img id="valid" src="{$img_dir}/assets/valider.png" alt="valider"/></a>
+		</p>
 	</section>
 </section>
