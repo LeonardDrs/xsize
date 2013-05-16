@@ -26,7 +26,7 @@
 
 {*
 ** Compatibility code for Prestashop older than 1.4.2 using a recent theme
-** Ignore list isn't require here
+** Ignore list isnt require here
 ** $address exist in every PrestaShop version
 *}
 
@@ -94,7 +94,19 @@ $(function(){ldelim}
 <!--<h1>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create your account'}{/if}</h1>-->
 {assign var='current_step' value='login'}
 
-{include file="$tpl_dir./errors.tpl"}
+<!--{include file="$tpl_dir./errors.tpl"}-->
+{foreach from=$errors key=k item=error}
+	{if $error|strstr:"mail"}
+		{$mailError = true}
+	{/if}
+	{if $error|strstr:"pass"}
+		{$passError = true}
+	{/if}
+	{if $error|strstr:"authentification"}
+		{$echec = true}
+	{/if}
+{/foreach}
+
 {assign var='stateExist' value=false}
 {if !isset($email_create)}
 	<div class="formcontainer" id="superform">
@@ -118,11 +130,11 @@ $(function(){ldelim}
 				<h3>{l s='Already registered ?'}</h3>
 				<p class="text">
 					<label for="email">{l s='E-mail address'}</label>
-					<span><input type="text" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|escape:'htmlall':'UTF-8'|stripslashes}{/if}" class="account_input" /></span>
+					<span><input type="text" id="email" name="email" value="{if isset($smarty.post.email)}{$smarty.post.email|escape:'htmlall':'UTF-8'|stripslashes}{/if}" class="account_input{if $mailError or $echec} formerror{/if}" /></span>
 				</p>
 				<p class="text lastxt">
 					<label for="passwd">{l s='Password'}</label>
-					<span><input type="password" id="passwd" name="passwd" value="{if isset($smarty.post.passwd)}{$smarty.post.passwd|escape:'htmlall':'UTF-8'|stripslashes}{/if}" class="account_input" /></span>
+					<span><input type="password" id="passwd" name="passwd" value="{if isset($smarty.post.passwd)}{$smarty.post.passwd|escape:'htmlall':'UTF-8'|stripslashes}{/if}" class="account_input{if $passError or $echec} formerror{/if}" /></span>
 				</p>
 				<p class="lost_password"><a href="{$link->getPageLink('password.php')}">{l s='Forgot your password?'}</a></p>
 				<p class="submit">
@@ -385,7 +397,7 @@ $(function(){ldelim}
 			</p>
 		{/if}
 		<p class="text">
-			<label class="labelidentity" for="phone">{l s='Home phone'}</label>
+			<label class="labelidentity" for="phone">{l s='Home phone'}</label><sup>* <span>(Vous devez enregistrer au moins un numéro de téléphone)<span></sup>
 			<input type="text" class="text" name="phone" id="phone" value="{if isset($smarty.post.phone)}{$smarty.post.phone}{/if}" />
 		</p>
 		<p class="text">

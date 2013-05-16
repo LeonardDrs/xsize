@@ -26,8 +26,8 @@
 */
 
 /* Debug only */
-@ini_set('memory_limit','64M');
-@ini_set('display_errors', 'off');
+@ini_set('memory_limit','512M');
+@ini_set('display_errors', 'on');
 define('_PS_DEBUG_SQL_', false);
 
 $start_time = microtime(true);

@@ -23,32 +23,29 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-<div class="topRightColumn">{l s='Inscrivez-vous a la newsletter' mod='blocknewsletter'}</div>
+<!--<div class="topRightColumn">{l s='Inscrivez-vous a la newsletter' mod='blocknewsletter'}</div>
 <img class="inconFooter1" src="{$img_dir}/home/Inews.png"/>
-<form action="{$link->getPageLink('index.php')}" method="post">
+<form method="post">
 	<input class="texteFooter" type="texte" value="{if isset($value) && $value}{$value}{else}{l s='Entrez votre email' mod='blocknewsletter'}{/if}" onfocus="javascript:if(this.value=='{l s='Entrez votre email' mod='blocknewsletter'}')this.value='';" onblur="javascript:if(this.value=='')this.value='{l s='Entrez votre email' mod='blocknewsletter'}';" size="18">
 	<input class="texteFooter footOk" type="image" type="submit" alt="S'inscrire" src="{$img_dir}/home/inscrire.png" name="submitNewsletter">
 	<input class="texteFooter rightOk" type="image" type="submit" alt="S'inscrire" src="{$img_dir}/home/OK.jpg" name="submitNewsletter">
-</form>
-<!-- Block Newsletter module
+</form>-->
+<!-- Block Newsletter module -->
 
 <div id="newsletter_block_left" class="block">
-	<div id="topNews"><h4>{l s='Inscrivez vous U+00E0 la newsletter' mod='blocknewsletter'}</h4></div>
-	<div class="block_content">
+	<div class="topRightColumn">{l s='Inscrivez-vous a la newsletter' mod='blocknewsletter'}</div>
+	<img class="inconFooter1" src="{$img_dir}/home/Inews.png"/>
 	{if isset($msg) && $msg}
-		<p class="{if $nw_error}warning_inline{else}success_inline{/if}">{$msg}</p>
+		<div id="popup-news" class="{if $nw_error}warning_inline{else}success_inline{/if}">{$msg}</div>
 	{/if}
-		<form action="{$link->getPageLink('index.php')}" method="post">
-			<p><input type="text" name="email" size="18" value="{if isset($value) && $value}{$value}{else}{l s='your e-mail' mod='blocknewsletter'}{/if}" onfocus="javascript:if(this.value=='{l s='your e-mail' mod='blocknewsletter'}')this.value='';" onblur="javascript:if(this.value=='')this.value='{l s='your e-mail' mod='blocknewsletter'}';" /></p>
-			<p>
-				--><!--<select name="action">
-					<option value="0"{if isset($action) && $action == 0} selected="selected"{/if}>{l s='Subscribe' mod='blocknewsletter'}</option>
-					<option value="1"{if isset($action) && $action == 1} selected="selected"{/if}>{l s='Unsubscribe' mod='blocknewsletter'}</option>
-				</select>--><!--
-				<input type="submit" value="ok" class="button_mini" name="submitNewsletter" />
-			</p>
-		</form>
-	</div>
-</div>-->
+	<form method="post">
+		<input class="mailnews" type="text" name="email" size="18" value="{if isset($value) && $value}{$value}{else}{l s='Entrez votre email' mod='blocknewsletter'}{/if}" onfocus="javascript:if(this.value=='{l s='Entrez votre email' mod='blocknewsletter'}')this.value='';" onblur="javascript:if(this.value=='')this.value='{l s='Entrez votre email' mod='blocknewsletter'}';" />
+		<select name="action" style="display:none">
+			<option value="0"{if isset($action) && $action == 0} selected="selected"{/if}>{l s='Subscribe' mod='blocknewsletter'}</option>
+		</select>
+		<input class="texteFooter rightOk" type="image" type="submit" alt="S'inscrire" src="{$img_dir}/home/OK.jpg" name="submitNewsletter">
+		<input class="texteFooter footOk" type="image" type="submit" alt="S'inscrire" src="{$img_dir}/home/inscrire.png" name="submitNewsletter">
+	</form>
+</div>
 
 <!-- /Block Newsletter module-->

@@ -192,6 +192,11 @@ function updateDisplay()
 		{
 			$('#pQuantityAvailable:hidden').show('slow');
 			$('#quantityAvailable').text(quantityAvailable);
+			$('#quantity_wanted_p').children().remove();
+			for (var i = 1; i <= quantityAvailable; i++){
+				$('#quantity_wanted_p').append('<option value="'+i+'">'+i+'</option>')
+			};
+			// $('#quantity_wanted_p').
 
 			if (quantityAvailable < 2) // we have 1 or less product in stock and need to show "item" instead of "items"
 			{
@@ -349,6 +354,11 @@ function updateDisplay()
 		/* Ecotax */
 		var ecotaxAmount = !displayPrice ? ps_round(selectedCombination['ecotax'] * (1 + ecotaxTax_rate / 100), 2) : selectedCombination['ecotax'];
 		$('#ecotax_price_display').text(formatCurrency(ecotaxAmount, currencyFormat, currencySign, currencyBlank));
+	}
+	if (quantityAvailable < 1) {
+		$('#attributes > div').eq(2).hide()
+	} else {
+		$('#attributes > div').eq(2).show();
 	}
 }
 

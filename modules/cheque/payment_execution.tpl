@@ -26,9 +26,8 @@
 
 {capture name=path}{l s='Cheque payment' mod='cheque'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
-
-<h2>{l s='Order summary' mod='cheque'}</h2>
-
+<h2 id="titlecheque">{l s='Order summary' mod='cheque'}</h2>
+<div id="chequee">
 {assign var='current_step' value='payment'}
 
 {if isset($nbProducts) && $nbProducts <= 0}
@@ -77,3 +76,4 @@
 	</p>
 </form>
 {/if}
+</div>

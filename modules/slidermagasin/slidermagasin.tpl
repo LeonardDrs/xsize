@@ -25,29 +25,11 @@
 				<li class="item last_item_of_line">
 					<img class ="imgTopp" src="modules/slidermagasin/images/6.jpg"/>
 				</li>
-				<li class="item last_item_of_line">
-					<img class ="imgTopp" src="modules/slidermagasin/images/7.jpg"/>
-				</li>
-				<li class="item last_item_of_line">
-					<img class ="imgTopp" src="modules/slidermagasin/images/8.jpg"/>
-				</li>
-
-				<li class="item last_item_of_line">
-					<img class ="imgTopp" src="modules/slidermagasin/images/9.jpg"/>
-				</li>
-				<li class="item last_item_of_line">
-					<img class ="imgTopp" src="modules/slidermagasin/images/10.jpg"/>
-				</li>
-				<li class="item last_item_of_line">
-					<img class ="imgTopp" src="modules/slidermagasin/images/11.jpg"/>
-				</li>
-				<li class="last_item last_item_of_line">
-					<img class ="imgTopp" src="modules/slidermagasin/images/12.jpg"/>
-				</li>
 			</ul>
 
 		{literal}
 			<script type="text/javascript" charset="utf-8">
+			$('#featuredNavLeft').css('left','-10000px');
 			var $featuredP = $('#featuredP');
 			$ul = $featuredP.find('ul');
 			$featuredP.find('#navFeat').css('display','block').find('a').css('z-index',9999);
@@ -57,22 +39,29 @@
 				$('#featuredNavRight').css('right','2px');
 				if (anim){return false;}
 				var currRight = parseInt($ul.css('right').split('px')[0]);
-				if (currRight<=0) {return false};
 				anim=true;
 				$ul.animate({'right':currRight-$ul.find('li').outerWidth(true)+"px"},function() {
 					anim=false;
 				});
+				if (currRight-$ul.find('li').outerWidth(true)<=0) {
+					$('#featuredNavLeft').css('left','-10000px');
+					return false
+				};
 				return false;
 			})
 			$featuredP.find('#featuredNavRight').click(function() {
 				$('#featuredNavLeft').css('left','12px');
 				if (anim){return false;}
 				var currRight = parseInt($ul.css('right').split('px')[0]);
-				if (currRight>=$ul.find('li').outerWidth(true)*($ul.find('li').length-4)) {return false};
 				anim=true;
 				$ul.animate({'right':currRight+$ul.find('li').outerWidth(true)+"px"},function() {
 					anim = false;
+
 				});
+				if (currRight+$ul.find('li').outerWidth(true)>=$ul.find('li').outerWidth(true)*($ul.find('li').length-4)) {
+					$('#featuredNavRight').css('right','-100000px');
+					return false
+					};
 				return false;
 			})
 			</script>

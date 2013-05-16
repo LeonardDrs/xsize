@@ -40,7 +40,7 @@
 				<a href="{$link->getPageLink('index.php')}?mylogout" title="{l s='Log me out' mod='blockuserinfo'}">{l s='Log out' mod='blockuserinfo'}</a>
 			</li>
 		{else}
-				<a id="nolog" href="{$link->getPageLink('connexion_inscription.php', true)}">{l s='Connexion | Identification' mod='blockuserinfo'}</a>
+				<a id="nolog" href="{$link->getPageLink('authentification', true)}">{l s='Connexion | Identification' mod='blockuserinfo'}</a>
 		{/if}
 	</ul>
 </div>

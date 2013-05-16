@@ -29,15 +29,15 @@
 <!-- Steps -->
 <section class="page menutunnel">
 	<h1>Étapes de la commande</h1>
-	<hr>
+	<hr class="lol">
 	<h2><em {if $current_step=='summary'}class="current"{/if}>1</em> Mon panier</h2>
-	<hr>
+	<hr class="lol">
 	<h2><em {if $current_step=='login'}class="current"{/if}>2</em> Identifiez vous</h2>
-	<hr>
+	<hr class="lol">
 	<h2><em {if $current_step=='address'}class="current"{/if}>3</em> Adresse</h2>
-	<hr>
+	<hr class="lol">
 	<h2><em {if $current_step=='shipping'}class="current"{/if}>4</em> Frais de port</h2>
-	<hr>
+	<hr class="lol">
 	<h2><em {if $current_step=='payment'}class="current"{/if}>5</em> Paiement</h2>
 </section>
 <!-- <ul class="step" id="order_step">

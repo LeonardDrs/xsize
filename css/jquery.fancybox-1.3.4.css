@@ -73,6 +73,7 @@
 	z-index: 1101;
 	outline: none;
 	display: none;
+	width: 800px !important;
 }
 
 #fancybox-outer {
@@ -106,7 +107,7 @@
 #fancybox-close {
 	position: absolute;
 	top: -15px;
-	right: -15px;
+	right: -25px;
 	width: 30px;
 	height: 30px;
 	background: transparent url('../js/jquery/fancybox/fancybox.png') -40px 0px;

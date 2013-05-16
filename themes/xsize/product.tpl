@@ -119,14 +119,13 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 //]]>
 </script>
 
-
+{capture name=path}<a class="capitaliz" href="{$link->getCategoryLink($product->id_category_default)}" title="{$product->category}">{$product->category}</a><span class="navigation-pipe"> &gt; </span>{$product->name}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
-
 <section id="content">
 	<section id="blockslider"><div id="image-block">
 		{if $have_image}
-			<img class="imgBorder" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large')}"
-				{if $jqZoomEnabled}class="jqzoom" alt="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox')}"{else} title="{$product->name|escape:'htmlall':'UTF-8'}" alt="{$product->name|escape:'htmlall':'UTF-8'}" {/if} id="bigpic" width="{$largeSize.width}" height="{$largeSize.height}" />
+			<img class="imgBorder" src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox')}"
+				{if $jqZoomEnabled}class="jqzoom" alt="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox')}"{else} title="{$product->name|escape:'htmlall':'UTF-8'}" alt="{$product->name|escape:'htmlall':'UTF-8'}" {/if} id="bigpic" width="450" height="450" />
 		{else}
 			<img class="imgBorder" src="{$img_prod_dir}{$lang_iso}-default-large.jpg" id="bigpic" alt="" title="{$cover.legend|escape:'htmlall':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}" />
 		{/if}
@@ -157,9 +156,9 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 
 	<section class="page" id="detail">
 		<figure> 
-			<img src="{$img_dir}/marques/marque1.png" alt="Marque" /> 
-			<figcaption id="marque">{$product->manufacturer_name}</figcaption> 
-			<figcaption id="produit">{$product->name|strip_tags}</figcaption> 
+			<img src="{$base_dir}img/m/{$product->id_manufacturer}-medium.jpg" />
+			<figcaption id="marque">{$product->name|strip_tags}</figcaption> 
+			<figcaption id="produit">{$product->manufacturer_name}</figcaption> 
 			<figcaption id="prix">
 			{if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
 					{if !$priceDisplay || $priceDisplay == 2}
@@ -230,10 +229,10 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				{$product->description}
 			</section>
 			<section id="infostaille" style="display:none;">
-				<p>Toutes les informations.</p>
+				{$HOOK_PRODMARQDESC}
 			</section>
 			<section id="infoslavage" style="display:none;">
-				<p>Ne dépassez pas les 70° au lavage.</p>
+				<p>{$product->description_short}</p>
 			</section>
 		</section>
 		<script type="text/javascript">
@@ -253,32 +252,46 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
 			</p>
 		
-		{if isset($groups)}
+	
 		<!-- attributes -->
 		<div id="attributes">
-		{foreach from=$groups key=id_attribute_group item=group}
-		{if $group.attributes|@count}
-		<div>
-			<span>{$group.name|escape:'htmlall':'UTF-8'}</span>
-			{assign var="groupName" value="group_$id_attribute_group"}
-			<select name="{$groupName}" id="group_{$id_attribute_group|intval}" onchange="javascript:findCombination();{if $colors|@count > 0}$('#wrapResetImages').show('slow');{/if};">
-				{foreach from=$group.attributes key=id_attribute item=group_attribute}
-					<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'htmlall':'UTF-8'}">{$group_attribute|escape:'htmlall':'UTF-8'}</option>
-				{/foreach}
-			</select>
+			{if isset($groups)}
+			{foreach from=$groups key=id_attribute_group item=group}
+			{if $group.attributes|@count}
+			<div>
+				<span>{$group.name|escape:'htmlall':'UTF-8'}</span>
+				{assign var="groupName" value="group_$id_attribute_group"}
+				<select name="{$groupName}" id="group_{$id_attribute_group|intval}" onchange="javascript:findCombination();{if $colors|@count > 0}$('#wrapResetImages').show('slow');{/if};">
+					{foreach from=$group.attributes key=id_attribute item=group_attribute}
+						<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'htmlall':'UTF-8'}">{$group_attribute|escape:'htmlall':'UTF-8'}</option>
+					{/foreach}
+				</select>
+			</div>
+			{/if}
+			{/foreach}
+			{/if}
+			
+			{if $product->quantity > 0}
+			<div>
+				<span>Quantité</span>
+				<select name="quantite" id="quantity_wanted_p">
+					{for $var=1 to $product->quantity|intval}
+						<option value="{$var}">{$var}</option>
+					{/for}
+				</select>
+			</div>
+			
+			
+			<script type="text/javascript" charset="utf-8">
+				$('#quantity_wanted_p').on('change',function() {
+					$('#quantity_wanted').val($(this).val())
+				})
+			</script>
+			{/if}
+			
+		
 		</div>
-		{/if}
-		{/foreach}
-		</div>
-		{/if}
-		{if $product->quantity > 0}
-		<span>{l s='Quantity :'}</span>
-		<select name="quantite" id="quantity_wanted_p">
-		{for $var=1 to $product->quantity|intval}
-			<option value="{$var}">{$var}</option>
-		{/for}
-		</select>
-		{/if}
+		
 		<input type="hidden" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" size="2" maxlength="3" {if $product->minimal_quantity > 1}onkeyup="checkMinimalQuantity({$product->minimal_quantity});"{/if} />
 		
 		<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>{l s='You must add '} <b id="minimal_quantity_label">{$product->minimal_quantity}</b> {l s=' as a minimum quantity to buy this product.'}</p>
@@ -318,8 +331,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		
 		<p {if (!$allow_oosp && $product->quantity <= 0) OR !$product->available_for_order OR (isset($restricted_country_mode) AND $restricted_country_mode) OR $PS_CATALOG_MODE} style="display: none;"{/if} id="add_to_cart" class="buttons_bottom_block"><input type="submit" name="Submit" value="{l s='Add to cart'}" class="exclusive" /></p>
 		{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
-			<a href="#"><< Retour au catalogue</a>
-		
+			<a href="javascript: history.go(-1)"><< Retour au catalogue</a>
 		</form>
 		</section>
 	</section>

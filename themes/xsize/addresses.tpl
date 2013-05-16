@@ -123,7 +123,7 @@
 <div class="clear address_add"><a id="addadresse" href="{$link->getPageLink('address.php', true)}" title="{l s='Add an address'}" class="button_large">+ {l s='Add an address'}</a></div>
 
 <ul class="footer_links" id="account-homeul">
-	<li><a href="{$link->getPageLink('my-account.php', true)}"><img src="{$img_dir}assets/account.png" alt="{l s='My account'}"/></a><a class="account-a" href="{$link->getPageLink('my-account.php', true)}" title="{l s='My account'}">{l s='My account'}</a></li>
+	<li><a class="aimg" href="{$link->getPageLink('my-account.php', true)}"><img src="{$img_dir}assets/account.png" alt="{l s='My account'}"/></a><a class="account-a" href="{$link->getPageLink('my-account.php', true)}" title="{l s='My account'}">{l s='My account'}</a></li>
 	<hr/>
 </ul>
 <p id="account-homep"><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}assets/account-home.png" alt="{l s='Home'}"/></a><a class="account-a" id="account-blue" href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>

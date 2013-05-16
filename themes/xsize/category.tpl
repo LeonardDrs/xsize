@@ -25,6 +25,7 @@
 *}
 
 <section id="content">
+{capture name=path}{$category->name|escape:'htmlall':'UTF-8'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 {include file="$tpl_dir./errors.tpl"}
 {if isset($category)}
@@ -47,6 +48,44 @@
 			{elseif !isset($subcategories)}
 				<p class="warning">{l s='There are no products in this category.'}</p>
 			{/if}
+
+
+		{if $category->id == 3}
+			<script type="text/javascript">
+				{literal}
+				// category.tpl
+					var hidizz = function() {
+							$('.block_content #ul_layered_id_attribute_group_27,.block_content #ul_layered_id_attribute_group_7,.block_content #ul_layered_id_attribute_group_11,.block_content #ul_layered_id_attribute_group_13').each(function() {
+								$(this).parents('#layered_form div .clearfix').hide();
+							})
+					}
+					var reformat = function() {
+						var initTop = 117;
+						var $div = $('<div id="bfbloc"><div id="layered_form" class="wrapper"></div></div>');
+						// $div.append($('#ul_layered_id_attribute_group_7,#ul_layered_id_attribute_group_11,#ul_layered_id_attribute_group_13'));
+						$('#ul_layered_id_attribute_group_7,#ul_layered_id_attribute_group_11,#ul_layered_id_attribute_group_13,#ul_layered_id_attribute_group_27').each(function() {
+							// $div.find('.wrapper').clone(true).append($(this).parents('#layered_form div .clearfix'));
+							$(this).parents('#layered_form div .clearfix').clone().appendTo($div.find('.wrapper'))
+							$(this).parents('#layered_form div .clearfix').hide();
+						})
+						$div.find('div.clear').remove();
+						$('#product_list').before($div);
+						
+						$('body').on('click','#bfbloc .layered_close',function(event) {
+							event.preventDefault();
+							$(this).siblings('ul').toggle().end().find('a').toggleClass('fleche_droite');
+						})
+						$('body').on('click','#bfbloc input',function(event) {
+							$('#layered_block_left').find('#'+$(this).attr('id')).trigger('click');
+						})
+					}
+					reformat();
+				{/literal}
+			</script>
+		{/if}
+
+
+
 	{elseif $category->id}
 		<p class="warning">{l s='This category is currently unavailable.'}</p>
 	{/if}

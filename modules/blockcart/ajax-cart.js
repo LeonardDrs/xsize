@@ -587,11 +587,11 @@ var ajaxCart = {
 
 	//update general cart informations everywhere in the page
 	updateCartEverywhere : function(jsonData) {
-		$('.ajax_cart_total').text(jsonData.total);
+		$('.ajax_cart_total').text(jsonData.totalProducts);
 		$('.ajax_cart_shipping_cost').text(jsonData.shippingCost);
 		$('.ajax_cart_tax_cost').text(jsonData.taxCost);
 		$('.cart_block_wrapping_cost').text(jsonData.wrappingCost);
-		$('.ajax_block_cart_total').text(jsonData.total);
+		$('.ajax_block_cart_total').text(jsonData.productTotal);
 		if(parseInt(jsonData.nbTotalProducts) > 0)
 		{
 			$('.ajax_cart_no_product').hide();

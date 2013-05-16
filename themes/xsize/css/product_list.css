@@ -63,19 +63,24 @@ ul#product_list li p.compare input { vertical-align: text-bottom }
 }
 
 #product_list figure{
-       float:left;
-       margin:12px 20px;
+	float:left;
+	margin:12px 20px;
+	width: 184px;
 }
    
 #product_list figcaption {
 	font: 14px "Tahoma";
 	padding-left:20px;
+	padding-left:35px;
 	text-align:center;
     width:auto;
 }
 #product_list figcaption#marque{
 	color:#1c1c1c;
 	font-weight:bold;
+	height:34px;
+	width: 100%;
+	padding-left: 20px;
 }
 #product_list figcaption#produit{
 	color:#adacac;

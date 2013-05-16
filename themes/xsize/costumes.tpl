@@ -1,33 +1,23 @@
+		{capture name=path}{l s='Costumes'}{/capture}
+		{include file="$tpl_dir./breadcrumb.tpl"}
 		<section id="content costumespage">
-			<h1>{l s="COSTUMES"}</h1>
+			<div class="h1demarque"><h1>{l s="COSTUMES"}</h1></div>
 			<section class="page">
-
+				{$content}
 			</section>
 
-			<!--<section class="page" id="costumezone">
-				<section id="costumes">
-					<img class="vert preview_inner" src="{$img_dir}/products/costumes/mec1.jpg" alt="mec1"/>
-					<span class="loupe-j"></span>
-					<img class="beige preview_inner" src="{$img_dir}/products/costumes/mec2.jpg" alt="mec2"/>
-					<span class="loupe-r"></span>
-					<img class="rouge preview_inner" src="{$img_dir}/products/costumes/mec3.jpg" alt="mec3"/>
-					<span class="loupe-b"></span>
-					<img class="bleu preview_inner" src="{$img_dir}/products/costumes/mec4.jpg" alt="mec4"/>
-					<span class="loupe-v"></span>
-				</section>
-			</section>-->
 			<div class="page" id="costumezone2">
 				<div id="costumes2">
 					<div class="column_left">
 						<div>
 							<div id="costume1">
-								<img class="preview_inner1" src="{$img_dir}/products/costumes/mec1.jpg" alt="mec1"/>
+								<img class="preview_inner1" src="{$img_dir}/products/costumes/zoom1.jpg" alt="zoom1"/>
 							<span class="loupe-v"></span>
 							</div>
 						</div>
 						<div>
 							<div id="costume2">
-								<img class="preview_inner2" src="{$img_dir}/products/costumes/mec2.jpg" alt="mec2"/>
+								<img class="preview_inner2" src="{$img_dir}/products/costumes/zoom2.jpg" alt="zoom2"/>
 								<span class="loupe-r"></span>
 							</div>
 						</div>
@@ -35,54 +25,19 @@
 					<div class="column_right">
 							<div>
 								<div id="costume3">
-									<img class="preview_inner3" src="{$img_dir}/products/costumes/mec3.jpg" alt="mec3"/>
+									<img class="preview_inner3" src="{$img_dir}/products/costumes/zoom3.jpg" alt="zoom3"/>
 									<span class="loupe-j"></span>
 								</div>
 							</div>
 							<div>
 								<div id="costume4">
-									<img class="preview_inner4" src="{$img_dir}/products/costumes/mec4.jpg" alt="mec4"/>
+									<img class="preview_inner4" src="{$img_dir}/products/costumes/zoom4.jpg" alt="zoom4"/>
 									<span class="loupe-b"></span>
 								</div>
 							</div>
 					</div>
 				</div>
 			</div>
-
-			<!--<div id="works" class="page">
-				<div id="works_previews">
-					<div id="works_previews_inner">
-						<div class="column works_right first">
-							<div class="preview top_preview">
-								<div class="preview_inner">
-									<img class="vert" src="{$img_dir}/products/costumes/mec1.jpg" alt="mec1">
-									<span class="loupe-j"></span>
-								</div>
-							</div>
-							<div class="preview bottom_preview">
-								<div class="preview_inner">
-									<img class="beige" src="{$img_dir}/products/costumes/mec2.jpg" alt="mec2">
-									<span class="loupe-r"></span>
-								</div>
-							</div>
-						</div>
-						<div class="column works_left">
-							<div class="preview top_preview">
-								<div class="preview_inner">
-									<img class="rouge" src="{$img_dir}/products/costumes/mec3.jpg" alt="mec3">
-									<span class="loupe-b"></span>
-								</div>
-							</div>
-							<div class="preview bottom_preview">
-								<div class="preview_inner">
-									<img class="bleu" src="{$img_dir}/products/costumes/mec4.jpg" alt="mec4">
-									<span class="loupe-v"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>-->
 
 		{$SLIDERCOSTUME}
 <script type="text/javascript">

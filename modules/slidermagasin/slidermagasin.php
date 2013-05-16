@@ -105,12 +105,12 @@ class SliderMagasin extends Module
 
 	function upload(){
 		//Uploading
-		$astrIncomingFiles = array( '1_jpg', '2_jpg', '3_jpg', '4_jpg', '5_jpg', '6_jpg', '7_jpg', '8_jpg', '9_jpg', '10_jpg', '11_jpg', '12_jpg' );
-		$astrFilenames = array( '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg' );
+		$astrIncomingFiles = array( '1_jpg', '2_jpg', '3_jpg', '4_jpg', '5_jpg', '6_jpg');
+		$astrFilenames = array( '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg');
 
 		echo '<div class="conf confirm">';
 
-		for ( $i = 0; $i < 12; ++$i )
+		for ( $i = 0; $i < 6; ++$i )
 		{
 			$infile = $astrIncomingFiles[ $i ];
 			$outfile = $astrFilenames[ $i ];
@@ -221,38 +221,6 @@ class SliderMagasin extends Module
 					<INPUT type=file name="6_jpg" accept="image/jpeg, image/jpg"><br/><br/>
 					 Miniature :<br/><br/>
                     <img src="../modules/slidermagasin/images/6.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 7<u>.jpg</u></b><br/>
-					<INPUT type=file name="7_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                    <img src="../modules/slidermagasin/images/7.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 8<u>.jpg</u></b><br/>
-					<INPUT type=file name="8_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					Miniature :<br/><br/>
-                    <img src="../modules/slidermagasin/images/8.jpg" border="0" width="200"><br/><br/>
-
-
-					<b>Image 9<u>.jpg</u></b><br/>
-					<INPUT type=file name="9_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                     <img src="../modules/slidermagasin/images/9.jpg" border="0" width="200" ><br/><br/>
-
-					<b>Image 10<u>.jpg</u></b><br/>
-					<INPUT type=file name="10_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                    <img src="../modules/slidermagasin/images/10.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 11<u>.jpg</u></b><br/>
-					<INPUT type=file name="11_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                    <img src="../modules/slidermagasin/images/11.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 12<u>.jpg</u></b><br/>
-					<INPUT type=file name="12_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					Miniature :<br/><br/>
-                    <img src="../modules/slidermagasin/images/12.jpg" border="0" width="200"><br/><br/>
-
 
 
 					<INPUT type=submit name="upload" value="Envoyer">

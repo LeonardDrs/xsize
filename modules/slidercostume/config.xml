@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
 	<name>slidercostume</name>
-	<displayName><![CDATA[Slider des costumes]]></displayName>
+	<displayName><![CDATA[Page des costumes]]></displayName>
 	<version><![CDATA[1.0]]></version>
 	<description><![CDATA[Slider en bas de la page des costumes.]]></description>
 	<author><![CDATA[Hetic]]></author>

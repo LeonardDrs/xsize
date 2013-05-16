@@ -31,16 +31,16 @@
 <!--<h4>{l s='Welcome to your account. Here you can manage your addresses and orders.'}</h4>-->
 <div id="account-div">
 	<ul id="account-homeul">
-		<li><a href="{$link->getPageLink('history.php', true)}" title="{l s='Orders'}"><img src="{$img_dir}assets/account-calendar.png" alt="{l s='Orders'}"/></a><a class="account-a" href="{$link->getPageLink('history.php', true)}" title="{l s='Orders'}">{l s='History and details of my orders'}</a></li>
+		<li><a class="aimg" href="{$link->getPageLink('history.php', true)}" title="{l s='Orders'}"><img src="{$img_dir}assets/account-calendar.png" alt="{l s='Orders'}"/></a><a class="account-a" href="{$link->getPageLink('history.php', true)}" title="{l s='Orders'}">{l s='History and details of my orders'}</a></li>
 		<hr/>
-		<li><a href="{$link->getPageLink('addresses.php', true)}" title="{l s='Addresses'}"><img src="{$img_dir}assets/account-map.png" alt="{l s='Addresses'}"/></a><a class="account-a" href="{$link->getPageLink('addresses.php', true)}" title="{l s='Addresses'}">{l s='My addresses'}</a></li>
+		<li><a class="aimg" href="{$link->getPageLink('addresses.php', true)}" title="{l s='Addresses'}"><img src="{$img_dir}assets/account-map.png" alt="{l s='Addresses'}"/></a><a class="account-a" href="{$link->getPageLink('addresses.php', true)}" title="{l s='Addresses'}">{l s='My addresses'}</a></li>
 		<hr/>
-		<li><a href="{$link->getPageLink('identity.php', true)}" title="{l s='Information'}"><img src="{$img_dir}assets/account-infos.png" alt="{l s='Information'}"/></a><a class="account-a" href="{$link->getPageLink('identity.php', true)}" title="{l s='Information'}">{l s='My personal information'}</a></li>
+		<li><a class="aimg" href="{$link->getPageLink('identity.php', true)}" title="{l s='Information'}"><img src="{$img_dir}assets/account-infos.png" alt="{l s='Information'}"/></a><a class="account-a" href="{$link->getPageLink('identity.php', true)}" title="{l s='Information'}">{l s='My personal information'}</a></li>
 		<hr/>
 		{if $returnAllowed}
-			<li><a href="{$link->getPageLink('order-follow.php', true)}" title="{l s='Merchandise returns'}"><img src="{$img_dir}icon/return.gif" alt="{l s='Merchandise returns'}"/></a><a class="account-a" href="{$link->getPageLink('order-follow.php', true)}" title="{l s='Merchandise returns'}">{l s='My merchandise returns'}</a></li>
+			<li><a class="aimg" href="{$link->getPageLink('order-follow.php', true)}" title="{l s='Merchandise returns'}"><img src="{$img_dir}icon/return.gif" alt="{l s='Merchandise returns'}"/></a><a class="account-a" href="{$link->getPageLink('order-follow.php', true)}" title="{l s='Merchandise returns'}">{l s='My merchandise returns'}</a></li>
 		{/if}
-		<li><a href="#" title="Bon de retour"><img src="{$img_dir}assets/account-bdr.png" alt="Bon de retour"/></a><a class="account-a" href="#" title="Bon de retour">Bon de retour</a></li>
+		<li><a class="aimg" title="Bon de retour"><img src="{$img_dir}assets/account-bdr.png" alt="Bon de retour"/></a><a class="account-a" target="_blank" href="{$img_dir}bon_retour.pdf" title="Bon de retour">Bon de retour</a></li>
 		<hr/>
 	<!--
 		<li><a href="{$link->getPageLink('order-slip.php', true)}" title="{l s='Credit slips'}"><img src="{$img_dir}assets/account-bdr.png" alt="{l s='Credit slips'}"/></a><a class="account-a" href="{$link->getPageLink('order-slip.php', true)}" title="{l s='Credit slips'}">{l s='My credit slips'}</a></li>

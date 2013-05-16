@@ -88,6 +88,10 @@ a {
 a img {
   border: none;
 }
+/* form error*/
+.formerror{
+	border-color: red !important;
+}
 
 /*******************************HEADER****************************************/
 #topHeader{
@@ -121,6 +125,7 @@ a img {
 	margin-right:10px;
 	color:#9e9e9e;
 	font-size:11px;
+	line-height:1.4;
 }
 
 #topLivraison{
@@ -149,6 +154,7 @@ a img {
 	margin-right:25px;
 	color:#9e9e9e;
 	font-size:11px;
+	line-height:1.4;
 }
 
 #topCompte{
@@ -424,6 +430,7 @@ left:150px;
 	font-size:11px;
 	display:block;
 	height:20px;
+	margin-top:3px;
 }
 
 
@@ -467,9 +474,13 @@ left:150px;
 
 
 /*******************************CONTENT****************************************/
-.breadcrumb { position:absolute; left:0; padding-left:25px; background:url('../img/assets/home.png') no-repeat; }
-.breadcrumb span a { color:#adacac; font:14px "Tahoma", "sans-serif"; line-height:1.6em; }
+.breadcrumb { position:relative; padding-left:25px; background:url('../img/assets/home.png') no-repeat; height: 25px; line-height:1.4; margin-top:5px; }
+.breadcrumb span { display:inline !important; font: 14px Tahoma, sans-serif; line-height:1.4; }
+.breadcrumb span a { color:#adacac; font:14px "Tahoma", "sans-serif"; line-height:1.4; }
 .breadcrumb span a:hover { text-decoration:underline; }
+#marques .breadcrumb, #costumes .breadcrumb, #manufacturer .breadcrumb, #magasin .breadcrumb, #cms .breadcrumb, #authentication .breadcrumb, #password .breadcrumb, #my-account .breadcrumb{  }
+.capitaliz:first-letter { text-transform: uppercase; }
+.capitaliz { display:inline-block; }
 
 div#contentold{
 	width:980px;
@@ -549,7 +560,7 @@ div#contentold{
 	color: #9E9E9E;
     font-size: 13px;
 }
-
+input.texteFooter:first-child { padding-left:5px; }
 .imgPay{
 	margin-right:18px;
 }
@@ -559,9 +570,12 @@ div#contentold{
 }
 
 
-#bottomPaiement p{
-	margin-top:0px;
-	margin-bottom:-6px;
+#contentold #bottomPaiement p{
+	margin:2px 0 -4px 0;
+	font:13px "Tahoma";
+	color:#595959;
+	text-align:left;
+	color:#999;
 }
 
 #facebook{
@@ -638,7 +652,7 @@ text-align:center;
 	color:#fff;
 }
 .elemFoot .texteFooter a{color:#fff;}
-.texteFooter a:hover {color:#fff;text-decoration:underline;}
+.texteFooter a:hover, .elemFoot a p:hover {color:#fff;text-decoration:underline;}
 
 .inconFooter1{
 margin-left:5px;
@@ -678,8 +692,8 @@ text-align:center;
 .elemFoot .topRightColumn, .elemFoot  .rightOk{
 	display:none;
 }
-
-
+.elemFoot #newsletter_block_left { display:inline; }
+.elemFoot #newsletter_block_left input.mailnews { vertical-align:6px }
 
 //*************** Home featured product *************/
 #titreTopVente{
@@ -737,23 +751,27 @@ text-align:center;
 #featuredP h2{
 	font-size:14px;
 }
-#featuredP h3{
+#featuredP .prodDesc h3{
 	font-size:14px;
 	height: 20px;
 	margin: 0;
 	padding: 1px 0 5px;
+	text-align: center;
 }
-#featuredP h4{
+#featuredP .prodDesc h4{
 	color:#9e9e9e;
 	font-size:14px;
 	margin: 0;
+	padding: 0;
 	padding-bottom: 5px;
+	text-align: center;
 }
 
-#featuredP p{
+#featuredP .prodDesc p{
 	font-size:14px;
 	color:#ae1d1c;
 	margin: 0;
+	text-align: center;
 }
 
 #featuredP .imgTop{
@@ -781,7 +799,7 @@ text-align:center;
 #featuredP #navFeat a{
 	display:block;
 	position:absolute;
-	top:135px;
+	top: 155px;
 	text-indent: -9999px;
 	width:31px;
 	height:31px;
@@ -898,7 +916,7 @@ text-align:center;
     position:relative;
 	font:bold 14px "Tahoma";
 	color:#29140c;
-	margin:35px 0px 30px 0px;
+	margin:20px 0px 30px 0px;
 	padding: 5px;
 	width:115px;;
 	border-top:solid 1px;
@@ -934,17 +952,13 @@ text-align:center;
 	padding:10px 0 0 20px;
 }
 
-#marques #contentold span{
-	color:#adacac;
-	font: 16px "Arial Narrow", "Tahoma";
-	position:relative;
-	display:block;
-	margin-bottom:25px;
-}
 
+#marques #contentold span span.navigation-pipe { float:left; margin: 0 5px; line-height:1.4; }
 #marques #contentold span a{
 	text-decoration:none;
 	color:#adacac;
+	float:left;
+	line-height:1.4
 }
 
 #marques #contentold a:hover{
@@ -1047,8 +1061,11 @@ text-align:center;
 
 /* ABCD */
 #abcedaire {
+    position:relative;
     background:#fff;
     width:575px;
+    display:block;
+    margin-top:-50px;
     }
 #abcedaire a{
 	text-decoration:none;
@@ -1381,7 +1398,7 @@ text-align:center;
     padding:35px 20px;
     margin: 20px 0;
 }
-
+#adresses .address_title { margin-left:0; padding-left:0 }
 #contentold #infosup{
     margin-left:65px;
 	text-align:left;
@@ -1418,16 +1435,12 @@ text-align:center;
 }
 
  h1{
-/*    float:left;*/
 	font:bold 14px "Tahoma";
 	color:#838282;
 	margin:12px 30px 0 0;
 	padding: 5px;
-/*	width:115px;*/
 	border-top:solid 1px;
 	border-bottom:solid 1px;
-	border-color:#e6e6e6;
-/*	text-align:center;*/
 }
 
 #order #contentold h2{
@@ -1443,7 +1456,6 @@ text-align:center;
 	display: block;
 }
 .menutunnel{ display:none; }
-
 
 #order h1,#order h2{float: left; text-align:center}
 #order h1{ width:115px}
@@ -1477,7 +1489,7 @@ h2{
 	padding:10px 0 0 20px;
 }
 
-#contentold hr{
+#contentold hr.lol{
 	border:none;
 	float:left;
 	background:url('../img/assets/sep-vertical.png') no-repeat;
@@ -1500,22 +1512,16 @@ h2{
 	height:70px;
 }
 
-#contentold span{
-	color:#adacac;
-	font: 16px "Arial Narrow", "Tahoma";
-	position:relative;
-	margin-bottom:25px;
-}
-
 #contentold span a{
 	text-decoration:none;
 	color:#adacac;
 }
-
+#fancybox-content { width:800px !important; }
 #contentold a:hover{
 	text-decoration:underline;
 }
-
+#order .page a#aaa { font: 12px "Tahoma"; color:#8e8e8e; margin-left:0; padding-left:0; padding-right:0; vertical-align:2px; }
+#order .page a#aaa:hover { text-decoration: underline; }
 #contentold .home{
 	background: url('../img/assets/home.png') no-repeat 0 0;
 	padding-left:25px;
@@ -1548,6 +1554,7 @@ h2{
 	margin:0 0 15px 15px;
 	text-align:left;
 }
+#category #contentold p.warning { margin-left:350px; margin-top:250px; position:absolute; }
 #contentold p.submit{ margin:0; padding:0; display:block; float:right; }
 #contentold p.center{
 	margin-left:0;
@@ -2009,7 +2016,7 @@ hr.hrmap{
 }
 
 #magasin #contentold textarea.form {
-	height:170px;
+	height:220px;
 	width:290px;
 	resize:none;
 }
@@ -2036,7 +2043,7 @@ hr.hrmap{
     position:relative;
 	font:bold 14px "Tahoma";
 	color:#29140c;
-	margin:35px 0px 30px 0px;
+	margin:20px 0px 30px 0px;
 	padding: 5px;
 	width:75px;;
 	border-top:solid 1px;
@@ -2160,9 +2167,10 @@ hr{
 #magasin #mapzone p{
 	font:13px "Tahoma";
 	color:#595959;
-	margin:20px 0 15px 15px;
+	margin:20px 0px 15px 15px;
+	text-align:justify;
 }
-
+#magasin #mapzone .text p { padding-right:15px; }
 #magasin #contentold p.center{
 	margin-left:0;
 	text-align:center;
@@ -2173,10 +2181,11 @@ hr{
 	color:#fff;
 	margin: 0 10px 0 1px;
 }
-#magasin #contentold .page {
+
+#magasin #contentold .page, #costumes #contentold section.page {
     position:relative;
     background:#fff;
-    min-height:510px;
+    min-height:530px;
     height:auto;
 	box-shadow: 2px 2px 5px #e6e3da;
 	border-radius:10px;
@@ -2187,6 +2196,7 @@ hr{
 	margin:auto;
 	padding:10px 20px;
 }
+#costumes #contentold section.page { min-height: 0; float:left; height:425px; width: 410px; }
 #goTop{
 	position:fixed;
 	bottom:200px;
@@ -2298,19 +2308,22 @@ body#magasin{
 	text-align:left;
 }
 figcaption#marque { text-align:center }
-#marque .rte h1{
+.h1demarque { width:100%;  height:80px; }
+.h1demarques { width:100%; }
+.h1demarque h1, .h1demarques h1{  float:left; color:#000; margin-top:25px;  }
+#marque .rte h1, #h1demarque{
 	font:bold 14px "Tahoma";
 	color:#29140c;
 	margin:15px 0px 50px 10px;
 	padding:5px;
 	border-top:solid 1px;
 	border-bottom:solid 1px;
-	width:160px;
-	
+    width:auto;
+    float:left;
 }
 #marque .rte #lafaq h1 { width:175px; }
 #marque .rte #cgv h1 { width:270px; }
-
+#marque .rte .desc p { margin-top:0px; }
 .faq{width:170px;}
 .cg{width:260px;}
 .ml{width:150px;}
@@ -2345,7 +2358,7 @@ figcaption#marque { text-align:center }
 #marque .rte p{
 	font:13px "Tahoma";
 	color:#595959;
-	margin:0 0 15px 15px;
+	margin:0px 0 15px 15px;
 }
 
 #marque .rte p.center{	
@@ -2360,6 +2373,7 @@ figcaption#marque { text-align:center }
 }
 #marque .rte {
 	background:#fff;
+	display:block;
 	width:710px;
 	box-shadow: 2px 2px 5px #222;
 	border-radius:10px;
@@ -2367,11 +2381,11 @@ figcaption#marque { text-align:center }
 	-weebkit-border-radius:10px;
 	-o-border-radius:10px;
 	-ms-border-radius:10px;
-	margin:0 auto 30px;
-	padding:30px;
+	margin:80px auto 30px auto;
+	padding:50px 30px 30px 30px;
 }
 
-#marque .rte img{margin-left:50px;box-shadow: 2px 2px 5px #595959;}
+#marque .rte img{margin:-10px 15px 5px 15px;box-shadow: 2px 2px 5px #595959; float:left;}
 #marque .rte div#host {
 	background:url('../img/assets/logo-ovh.png') no-repeat 0px 50px;
 	float:right;
@@ -2379,7 +2393,7 @@ figcaption#marque { text-align:center }
 }
 #marque .rte div#host h2{margin:0 0 0 47px;}
 #marque .rte div#host p{margin:0 0 0 50px;line-height:1.6;}
-section#content{ margin:0 auto; }
+section#content{ margin:5px auto 0; }
 #div404 { height:auto; }
 #logo404, #logo404 + img { display:block; margin:auto; }
 #logo404 + img { margin:40px 0 0 135px; }
@@ -2394,6 +2408,7 @@ div#contentold{
 #account-div { background:#fff; border-radius:10px; padding: 10px}
 #account-homeul { margin-top:50px; }
 #account-homeul hr { margin-left:100px; width:235px; }
+#account-homeul hr:last-child { margin-bottom:0; }
 #account-homeul li, #account-homep a { list-style:none; margin: -10px 0px -5px 20px; }
 #account-homeul li a.account-a { margin-left:50px; vertical-align:10px; }
 #account-blue { color:#5090b8; }
@@ -2416,6 +2431,7 @@ div#contentold{
 .labelidentity { margin:0 5px 0px 10px; }
 #identityfield sup { color:#3f85af;
 	font: 12px "Tahoma"; }
+#identityfield sup span { font-size:10px; }	
 	#id_gender1 { margin-left:10px; }
 #identityfield input[type="text"], select#id_country  { display:block;height:30px;
 padding-left:10px;margin-top:5px;
@@ -2437,7 +2453,7 @@ padding-left:10px;margin-top:5px;
 #vosadresse{ width:115px; }
 select#id_country { width:120px; display:block; margin: 5px 0 0 10px; }
 #identityfield { border:dotted 1px #8e8e8e; }
-.error { padding:10px 50px; background:#fff; border-radius:5px; margin-bottom:30px; color:red;
+.error { padding:10px 50px; background:#fff; border-radius:5px; margin-top:30px; color:red;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	-o-border-radius:5px;
@@ -2451,7 +2467,7 @@ select#id_country { width:120px; display:block; margin: 5px 0 0 10px; }
 #creacompte { width:170px; }
 fieldset.account_creation { border:none; }
 #forminfo { margin-left:10px; font:10px "Tahoma", "Arial"; }
-#identityfield p span { margin-left:10px; } 
+#identityfield p > span { margin-left:10px; } 
 #identityfield p input[type=checkbox] { vertical-align:top; margin-top:1px; }
 #processCarrier { float:right; display:inline-block; background:url('../img/assets/next.png'); border:none; color:#fff; font-size:14px; text-indent:-10px; height:43px; width:112px; margin:0px 10px 10px 0; cursor:pointer; }
 #submitAccount { float:right; background:url('../img/assets/valider.png'); border:none; color:rgba(255,255,255,0); height:43px; width:112px; margin:-50px 10px 10px 0; cursor:pointer; }
@@ -2463,3 +2479,52 @@ fieldset.account_creation { border:none; }
 #contentold #panier5 h4 { margin-bottom:0 }
 #contentold #panier5 p.payment_module { background:url('../img/assets/arrow-right.png') no-repeat 0 center; padding-top:0; padding-bottom:0; margin-left:50px; }
 #contentold #panier5 p.payment_module a img{ position:relative; vertical-align:middle; }
+.aimg { margin-left:14px; }
+#chequee, #bankwiree, #autretruck, #onfirm { background: #fff; border-radius:10px; margin-top:20px; padding:20px 50px; }
+#titlecheque, #titlebank, #titleautretruc, #orderconfirm  { 
+    position:relative;
+	font:bold 14px "Tahoma";
+	text-transform:uppercase;
+	color:#29140c;
+	margin:35px 0px 30px 0px;
+	padding: 5px;
+	width:230px;
+	border-top:solid 1px;
+	border-bottom:solid 1px;
+	text-align:center; }
+.facebook_like_box_block iframe { height:225px !important; border-bottom:solid 1px #aaa !important; }
+#h1spacer { display:block; width:100%; height:100px; }
+#marques #contentold h1#nosmarques{
+    position:relative;
+    display:block;
+	font:bold 14px "Tahoma";
+	color:#29140c;
+	padding: 5px;
+	border-top:solid 1px #000;
+	border-bottom:solid 1px #000;
+}
+/* Mot de passe oublie */
+h1#mdptitle { margin-top:35px; color:#000; border-top:solid 1px #000; border-bottom:solid 1px #000; width:auto; float:left; }
+div.containertitle { width:960px; display:block;height:80px;}
+div.blockblanc { background:#fff; border-radius:10px; padding: 10px; margin-top:14px; }
+div.blockblanc hr { margin-left: 90px; margin-top:50px; margin-bottom:10px;}
+div.blockblanc a { color:#595959; }
+div.blockblanc a img { margin-left:20px; }
+div.blockblanc a#backtologin { margin-left:40px; vertical-align:10px; }
+div.blockblanc p.success { padding: 20px 0 0 200px; }
+p#mdprappel { padding:20px 0; }
+.mdpfieldset { border:none; }
+.mdpfieldset label { float:left; width:100%; margin-left:10px; }
+.mdpfieldset input#email { float:left; margin-top:10px; }
+.mdpfieldset p#submit { float:left; margin-top:10px; }
+.mdpfieldset p#submit input.button { background:url('../img/assets/next.png') 5px -5px; border:none; width:111px; height:36px; cursor:pointer; color:#fff; }
+.h1spacer { height:50px; }
+.h1spacer2 { height:100px; }
+*+html .h1spacer2 { height:150px; }
+#infostaille .marque_desc { width:100%; border-collapse:collapse; }
+#infostaille .marque_desc td:first-child, #infostaille .marque_desc th:first-child { border-right:solid 1px #ebeaea } 
+#infostaille .marque_desc tr { text-align:center; border:solid 1px #ebeaea; border-left:none; border-right:none }
+#infostaille .marque_desc tr:last-child, #infostaille .marque_desc tr:first-child { border:none; }
+#infostaille .marque_desc td.taille { width:50%;  }
+.h1spacer h1 { margin-top:20px; text-transform:uppercase; }
+#mapzone { min-height:520px; }

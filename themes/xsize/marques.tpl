@@ -1,5 +1,6 @@
+{capture name=path}{l s='Marques'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
-<h1>NOS MARQUES</h1>
+<div class="h1spacer2"><h1 id="nosmarques">NOS MARQUES</h1></div>
 <section id="abcedaire">
 	<a href="#A">A</a>
 	<a href="#B">B</a>

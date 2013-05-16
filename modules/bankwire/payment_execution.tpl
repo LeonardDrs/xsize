@@ -27,8 +27,8 @@
 {capture name=path}{l s='Bank wire payment' mod='bankwire'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h2>{l s='Order summary' mod='bankwire'}</h2>
-
+<h2 id="titlebank">{l s='Order summary' mod='bankwire'}</h2>
+<div id="bankwiree">
 {assign var='current_step' value='payment'}
 {include file="$tpl_dir./order-steps.tpl"}
 
@@ -78,3 +78,4 @@
 </p>
 </form>
 {/if}
+</div>

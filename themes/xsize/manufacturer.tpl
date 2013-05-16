@@ -23,19 +23,20 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+{capture name=path}<a href="{$base_dir}marques.php">Marques</a><span class="navigation-pipe"> &gt; </span>{$manufacturer->name|escape:'htmlall':'UTF-8'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
 {include file="$tpl_dir./errors.tpl"}
-
+<div class="h1demarques"><h1 class="nosmarques">{$manufacturer->name|escape:'htmlall':'UTF-8'}</h1></div>
 <div id="marque">
 	<div class="rte">
-		<div>
-			<h1>{$manufacturer->name|escape:'htmlall':'UTF-8'}</h1>
-			<div class="desc">
-				<img src="{$img_manu_dir}{$manufacturer->id}-medium.jpg" />
-				{$manufacturer->description}
-			</div><!-- end of .desc -->
+		<div class="divmarque">
+			<div class="marquecontainer">
+				<div class="desc">
+					<img src="{$img_manu_dir}{$manufacturer->id}-medium.jpg" />
+					{$manufacturer->description}
+				</div><!-- end of .desc -->
+			</div>
 		</div>
 	</div><!-- end of .rte -->
 </div><!-- end of #marque -->

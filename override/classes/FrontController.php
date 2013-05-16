@@ -32,7 +32,8 @@ class FrontController extends FrontControllerCore
 			'HOOK_FOOTER2' => Module::hookExec('footer2'),
 			'HOOK_FOOTER3' => Module::hookExec('footer3'),
 			'SLIDERMAGASIN' => Module::hookExec('sliderMagasin'),
-			'SLIDERCOSTUME' => Module::hookExec('sliderCostume')
+			'SLIDERCOSTUME' => Module::hookExec('sliderCostume'),
+			'HOOK_PRODMARQDESC' => Module::hookExec('productMarqueDescription')
 		));
 
 		if ((Configuration::get('PS_CSS_THEME_CACHE') OR Configuration::get('PS_JS_THEME_CACHE')) AND is_writable(_PS_THEME_DIR_.'cache'))

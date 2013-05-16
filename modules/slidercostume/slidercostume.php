@@ -15,7 +15,7 @@ class SliderCostume extends Module
 
 		parent::__construct();
 
-		$this->displayName = $this->l('Slider des costumes');
+		$this->displayName = $this->l('Page des costumes');
 		$this->description = $this->l('Slider en bas de la page des costumes.');
 	}
 
@@ -23,6 +23,25 @@ class SliderCostume extends Module
 	{
 	  	if (parent::install() == false OR !$this->registerHook('leftColumn') OR !$this->registerHook('sliderCostume'))
 	  		return false;
+	
+	
+		// Features values
+		Db::getInstance()->execute('DROP TABLE IF EXISTS `'._DB_PREFIX_.'slidercostume`');
+		Db::getInstance()->execute('
+		CREATE TABLE `'._DB_PREFIX_.'slidercostume` (
+		`id_ctn` INT NOT NULL AUTO_INCREMENT,
+		`contenu` TEXT NOT NULL,
+		PRIMARY KEY (`id_ctn`))ENGINE = '._MYSQL_ENGINE_);
+		
+		Db::getInstance()->execute('
+		INSERT INTO `'._DB_PREFIX_.'slidercostume` (
+		`id_ctn` ,
+		`contenu`
+		)
+		VALUES (
+		"1",  "Description"
+		)');
+	
 		return (parent::install());
 	}
 
@@ -104,13 +123,17 @@ class SliderCostume extends Module
 	}
 
 	function upload(){
+
+		// insert bdd
+		Db::getInstance()->execute('UPDATE  `'._DB_PREFIX_.'slidercostume` SET  `contenu` =  "'.$_POST["content"].'" WHERE  `id_ctn` =1');
+
 		//Uploading
-		$astrIncomingFiles = array( '1_jpg', '2_jpg', '3_jpg', '4_jpg', '5_jpg', '6_jpg', '7_jpg', '8_jpg', '9_jpg', '10_jpg', '11_jpg', '12_jpg' );
-		$astrFilenames = array( '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg' );
+		$astrIncomingFiles = array( '1_jpg', '2_jpg', '3_jpg', '4_jpg', '5_jpg', '6_jpg');
+		$astrFilenames = array( '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg');
 
 		echo '<div class="conf confirm">';
 
-		for ( $i = 0; $i < 12; ++$i )
+		for ( $i = 0; $i < 6; ++$i )
 		{
 			$infile = $astrIncomingFiles[ $i ];
 			$outfile = $astrFilenames[ $i ];
@@ -184,74 +207,54 @@ class SliderCostume extends Module
 	}
 
 /*###################################################################*/
+	function getCtn() {
+		$ctn = Db::getInstance()->getValue('SELECT contenu FROM `'._DB_PREFIX_.'slidercostume` WHERE id_ctn = 1');
+		// $ctn = 'test';
+		return $ctn;
+	}
 	function affiche() //Panneau de gestion
 	{
+		$ctn = $this->getCtn();
+		// $ctn = 'siis';
 		echo '
 			<FORM method="POST" action="'.$_SERVER['REQUEST_URI'].'" ENCTYPE="multipart/form-data">
 					<INPUT type=hidden name=MAX_FILE_SIZE  VALUE=1562144>
-                    Ce module vous permet de modifier les images du slider de la page magasin.<Br></br>
+                    Ce module vous permet de modifier les images du slider de la page costume.<Br></br>
           		<Br></br>
-
+					
+					
+					
+					<b>Contenu</b><br/>
+					<textarea name="content">'.$ctn.'</textarea><br/><br/><br/>
 					<b>Image 1<u>.jpg</u></b><br/>
-					<INPUT type=file name="1_jpg" accept="image/jpeg, image/jpg"><br/><br/>
+					<INPUT type="file" name="1_jpg" accept="image/jpeg, image/jpg"><br/><br/>
 					 Miniature :<br/><br/>
                      <img src="../modules/slidercostume/images/1.jpg" border="0" width="200" ><br/><br/>
 
 					<b>Image 2<u>.jpg</u></b><br/>
-					<INPUT type=file name="2_jpg" accept="image/jpeg, image/jpg"><br/><br/>
+					<INPUT type="file" name="2_jpg" accept="image/jpeg, image/jpg"><br/><br/>
 					 Miniature :<br/><br/>
                     <img src="../modules/slidercostume/images/2.jpg" border="0" width="200"><br/><br/>
 
 					<b>Image 3<u>.jpg</u></b><br/>
-					<INPUT type=file name="3_jpg" accept="image/jpeg, image/jpg"><br/><br/>
+					<INPUT type="file" name="3_jpg" accept="image/jpeg, image/jpg"><br/><br/>
 					 Miniature :<br/><br/>
                     <img src="../modules/slidercostume/images/3.jpg" border="0" width="200"><br/><br/>
 
 					<b>Image 4<u>.jpg</u></b><br/>
-					<INPUT type=file name="4_jpg" accept="image/jpeg, image/jpg"><br/><br/>
+					<INPUT type="file" name="4_jpg" accept="image/jpeg, image/jpg"><br/><br/>
 					Miniature :<br/><br/>
                     <img src="../modules/slidercostume/images/4.jpg" border="0" width="200"><br/><br/>
 
 					<b>Image 5<u>.jpg</u></b><br/>
-					<INPUT type=file name="5_jpg" accept="image/jpeg, image/jpg"><br/><br/>
+					<INPUT type="file" name="5_jpg" accept="image/jpeg, image/jpg"><br/><br/>
 					 Miniature :<br/><br/>
                      <img src="../modules/slidercostume/images/5.jpg" border="0" width="200" ><br/><br/>
 
 					<b>Image 6<u>.jpg</u></b><br/>
-					<INPUT type=file name="6_jpg" accept="image/jpeg, image/jpg"><br/><br/>
+					<INPUT type="file" name="6_jpg" accept="image/jpeg, image/jpg"><br/><br/>
 					 Miniature :<br/><br/>
                     <img src="../modules/slidercostume/images/6.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 7<u>.jpg</u></b><br/>
-					<INPUT type=file name="7_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                    <img src="../modules/slidercostume/images/7.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 8<u>.jpg</u></b><br/>
-					<INPUT type=file name="8_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					Miniature :<br/><br/>
-                    <img src="../modules/slidercostume/images/8.jpg" border="0" width="200"><br/><br/>
-
-
-					<b>Image 9<u>.jpg</u></b><br/>
-					<INPUT type=file name="9_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                     <img src="../modules/slidercostume/images/9.jpg" border="0" width="200" ><br/><br/>
-
-					<b>Image 10<u>.jpg</u></b><br/>
-					<INPUT type=file name="10_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                    <img src="../modules/slidercostume/images/10.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 11<u>.jpg</u></b><br/>
-					<INPUT type=file name="11_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					 Miniature :<br/><br/>
-                    <img src="../modules/slidercostume/images/11.jpg" border="0" width="200"><br/><br/>
-
-					<b>Image 12<u>.jpg</u></b><br/>
-					<INPUT type=file name="12_jpg" accept="image/jpeg, image/jpg"><br/><br/>
-					Miniature :<br/><br/>
-                    <img src="../modules/slidercostume/images/12.jpg" border="0" width="200"><br/><br/>
 
 
 
@@ -268,6 +271,8 @@ class SliderCostume extends Module
 	public function hookLeftColumn($params)
 	{
 	  	global $smarty;
+		$ctn = $this->getCtn();
+		$smarty->assign('content', $ctn);
 	  	return $this->display(__FILE__, 'slidercostume.tpl');
 	}
 

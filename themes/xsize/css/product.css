@@ -19,6 +19,7 @@
 
 #detail #attributes {
 	padding: 0;
+	width:100%;
 }
 
 #detail span a{
@@ -83,7 +84,7 @@ em{
     background:transparent;
     height:510px;
 	margin:auto;
-	padding: 30px 20px 0px 20px;
+	padding: 20px 20px 0px 20px;
 }
 
 #blockslider ul li {
@@ -145,8 +146,10 @@ em{
 #detail {
 	width:400px;
 	float:right;
+	margin-top:20px;
 }
-
+#detail figure figcaption { margin-left:100px; }
+#detail figure figcaption#marque { margin-top:15px; }
 figure{
        display:inline-block;
        margin:15px 33px 30px 33px;
@@ -190,15 +193,17 @@ figcaption#prix{
     margin:0;
     }
 #tabDetails ul li {
-    display:inline;
+    display:block;
+    float:left;
     background: #148ad1;
     font: 14px "Tahoma";
     color:#fff;
     text-align:center;
-    padding:5px 25px;
-    margin:0px;
+    padding:5px 15px;
+    width:80px;
+    margin:0px 0 0 10px;
 }
-
+#tabDetails ul li:first-child { margin-left:0; }
 #tabDetails ul li:hover {
 	background: #10689e;
 }
@@ -207,16 +212,16 @@ figcaption#prix{
     color:#fff;
     text-decoration:none;   
 }
-
+section#infostaille, section#infoslavage { overflow-y:scroll; overflow-x:hidden; height:176px; }
 #tabDetails #descriptif, #tabDetails #infostaille, #tabDetails #infoslavage {
     position:absolute;
     border-bottom:solid 1px #dbdbdb;
     border-left:solid 1px #dbdbdb;
     border-right:solid 1px #dbdbdb;
-    top:27px;
-    width:344px;
+    top:31px;
+    width:348px;
 }
-
+#descriptif p { padding-right:15px; }
 #tabDetails #descriptif ul li, #tabDetails #infostaille ul li, #tabDetails #infoslavage ul li, #tabDetails p {
 	display:block;
 	background:transparent;

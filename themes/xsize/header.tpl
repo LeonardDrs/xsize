@@ -70,10 +70,10 @@
 	{if !$content_only}
 	<div id="header">
 		<div id="topHeader">
-			<a href="cms.php?id_cms=3#echange"><div id="topStatisfait">
+			<a href="{$link->getCMSLink('3','conditions-generales')}#echange"><div id="topStatisfait">
 				<p>{l s="Satisfait ou rembourse"}<br> {l s="Retour sous 15 jours"}</p>
 			</div></a>
-			<a href="cms.php?id_cms=3#livr"><div id="topLivraison">
+			<a href="{$link->getCMSLink('3','conditions-generales')}#livr"><div id="topLivraison">
 				<p>Livraison gratuite <br> à partir de 50€</p>
 			</div></a>
 			{$HOOK_CLIENT}
@@ -110,7 +110,7 @@
 									</li>
 									<li class="sousMenuItem">
 									<div class="linkSousMenu2">
-										<a title="Nos costumes" href="{$base_dir}costumes.php">Costumes</a>
+										<a title="Nos costumes" href="{$link->getPageLink('costumes.php')}">Costumes</a>
 									</div>
 									</li>
 								</ul>
@@ -123,15 +123,15 @@
 					<img class="sep" alt="separateur" src="{$img_dir}/home/sep.png">
 					<li class="elemMenu">
 						{$categories.print_r}
-						<a class="elemTopMenu" title="Tous les bon plans du moment !" href="{$link->getCategoryLink(3, bonne-affaire)}">BONNES AFFAIRES</a>
+						<a class="elemTopMenu" title="Tous les bon plans du moment !" href="{$link->getCategoryLink(3,'bonnes-affaires')}">BONNES AFFAIRES</a>
 					</li>
 					<img class="sep" alt="separateur" src="{$img_dir}/home/sep.png">
 					<li class="elemMenu">
-						<a class="elemTopMenu" title="Les différentes marques en vente chez X-Size" href="{$base_dir}marques.php">MARQUES</a>
+						<a class="elemTopMenu" title="Les différentes marques en vente chez X-Size" href="{$link->getPageLink('marques.php')}">MARQUES</a>
 					</li>
 					<img class="sep" alt="separateur" src="{$img_dir}/home/sep.png">
 					<li class="elemMenu">
-						<a class="elemTopMenu" title="Toutes les informations sur notre magasin !" href="{$base_dir}magasin.php">MAGASIN</a>
+						<a class="elemTopMenu" title="Toutes les informations sur notre magasin !" href="{$link->getPageLink('magasin.php')}">MAGASIN</a>
 					</li>
 					<img class="sep" alt="separateur" src="{$img_dir}/home/sep.png">
 				</ul>

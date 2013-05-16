@@ -30,9 +30,9 @@
 	<section id="product_list" class="clearfix">
 		{foreach from=$products item=product name=products}
 					<figure class="ajax_block_product {foreach from=$product.attribute item=attribute}{foreach from=$attribute item=attr}{$attr|replace:[' ',',']:'_'} {/foreach}{/foreach}{if $smarty.foreach.products.first}first_item{elseif $smarty.foreach.products.last}last_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if} clearfix">
-						<a href="{$product.link|escape:'htmlall':'UTF-8'}" class="product_img_link" title="{$product.name|escape:'htmlall':'UTF-8'}"><img class="imgBorder" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home')}" alt="{$product.legend|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="180" height="180"{/if} data-largeUrl="{$link->getImageLink($product.link_rewrite, $product.id_image, 'large')}"/></a>
-						<figcaption id="marque">{$product.manufacturer_name}</figcaption> 
-						<figcaption id="produit">{$product.description_short|truncate:360:'...'|strip_tags:'UTF-8'}</figcaption> 
+						<a href="{$product.link|escape:'htmlall':'UTF-8'}" class="product_img_link" title="{$product.name|escape:'htmlall':'UTF-8'}"><img class="imgBorder" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home')}" alt="{$product.legend|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="180" height="180"{/if} data-largeUrl="{$link->getImageLink($product.link_rewrite, $product.id_image,'thickbox')}"/></a>
+						<figcaption id="marque">{$product.name|truncate:40:'...'|strip_tags:'UTF-8'}</figcaption> 
+						<figcaption id="produit">{$product.manufacturer_name}</figcaption> 
 						<figcaption id="prix">{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}{/if}</figcaption> 
 					</figure>
 		{/foreach}

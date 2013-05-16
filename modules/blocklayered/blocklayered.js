@@ -36,6 +36,7 @@ $(document).ready(function()
 	
 	// Click on color
 	$('#layered_form input[type=button], #layered_form label.layered_color').live('click', function()
+	// $('body').on('click','#layered_form input[type=button], #layered_form label.layered_color', function()
 	{
 		if (!$('input[name='+$(this).attr('name')+'][type=hidden]').length)
 			$('<input />').attr('type', 'hidden').attr('name', $(this).attr('name')).val($(this).attr('rel')).appendTo('#layered_form');
@@ -451,6 +452,8 @@ function reloadContent(params_plus)
 			$('.hide-action').each(function() {
 				hideFilterValueAction(this);
 			});
+			var hidizz = hidizz || function() {}
+				hidizz() // custom
 		}
 	});
 	ajaxQueries.push(ajaxQuery);

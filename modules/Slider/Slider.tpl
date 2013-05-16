@@ -3,7 +3,7 @@
     <div id="banner-imgs">
     {foreach from=$slides item=slide}
 		{if $slide.title}
-        <a href="http://{$slide.href}" ><img src="{$slide.url}" alt="{$slide.title}" /></a>
+        <a href="{$slide.href}" ><img src="{$slide.url}" alt="{$slide.title}" /></a>
 		{/if}
  {/foreach}
     </div>

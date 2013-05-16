@@ -27,8 +27,8 @@
 {capture name=path}{l s='Order confirmation'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1>{l s='Order confirmation'}</h1>
-
+<h1 id="orderconfirm">{l s='Order confirmation'}</h1>
+<div id="onfirm">
 {assign var='current_step' value='payment'}
 
 {include file="$tpl_dir./errors.tpl"}
@@ -38,10 +38,25 @@
 
 <br />
 {if $is_guest}
-	<p>{l s='Your order ID is:'} <span class="bold">{$id_order_formatted}</span> . {l s='Your order ID has been sent to your e-mail.'}</p>
-	<a href="{$link->getPageLink('guest-tracking.php', true)}?id_order={$id_order}" title="{l s='Follow my order'}"><img src="{$img_dir}icon/order.gif" alt="{l s='Follow my order'}" class="icon" /></a>
-	<a href="{$link->getPageLink('guest-tracking.php', true)}?id_order={$id_order}" title="{l s='Follow my order'}">{l s='Follow my order'}</a>
+	<div id="account-div">
+		<p>{l s='Your order ID is:'} <span class="bold">{$id_order_formatted}</span> . {l s='Your order ID has been sent to your e-mail.'}</p>
+		<ul id="account-homeul">
+			<li>
+				<a class="aimg" href="{$link->getPageLink('history.php', true)}" title="{l s='Follow my order'}"><img src="{$img_dir}assets/account-calendar.png" alt="{l s='Follow my order'}"/></a>
+				<a class="account-a" href="{$link->getPageLink('history.php', true)}" title="{l s='Follow my order'}">{l s='Follow my order'}</a>
+			</li>
+		</ul>
+		<p id="account-homep"><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}assets/account-home.png" alt="{l s='Home'}"/></a><a class="account-a" id="account-blue" href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>
+	</div>
 {else}
-	<a href="{$link->getPageLink('history.php', true)}" title="{l s='Back to orders'}"><img src="{$img_dir}icon/order.gif" alt="{l s='Back to orders'}" class="icon" /></a>
-	<a href="{$link->getPageLink('history.php', true)}" title="{l s='Back to orders'}">{l s='Back to orders'}</a>
+<div id="account-div">
+	<ul id="account-homeul">
+		<li>
+			<a class="aimg" href="{$link->getPageLink('history.php', true)}" title="{l s='Back to orders'}"><img src="{$img_dir}assets/account-calendar.png" alt="{l s='Back to orders'}"/></a>
+			<a class="account-a" href="{$link->getPageLink('history.php', true)}" title="{l s='Back to orders'}">{l s='Back to orders'}</a>
+		</li>
+	</ul>
+	<p id="account-homep"><a href="{$base_dir}" title="{l s='Home'}"><img src="{$img_dir}assets/account-home.png" alt="{l s='Home'}"/></a><a class="account-a" id="account-blue" href="{$base_dir}" title="{l s='Home'}">{l s='Home'}</a></p>
+</div>
 {/if}
+</div>

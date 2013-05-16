@@ -45,7 +45,7 @@ var removingLinkText = '{l s='remove this product from my cart' mod='blockcart' 
 	<h4 id="titrePanier">
 		<a href="{$link->getPageLink("$order_process.php", true)}">{l s='Cart' mod='blockcart'}</a>
 	</h4>
-		<span class="ajax_cart_total mainPrice" {if $cart_qties <= 0} style="display:none"{/if}>{if $priceDisplay == 1}{convertPrice price=$cart->getOrderTotal(false)}{else}{convertPrice price=$cart->getOrderTotal(true)}{/if}</span>
+		<span class="ajax_cart_total mainPrice" {if $cart_qties <= 0} style="display:none"{/if}>{$product_total}</span>
 		<span class="ajax_cart_no_product mainPrice" {if $cart_qties != 0} style="display:none"{/if}>{l s='(empty)' mod='blockcart'}</span>
 	<h4 id="flecheH">
 		{if $ajax_allowed}
@@ -121,7 +121,7 @@ var removingLinkText = '{l s='remove this product from my cart' mod='blockcart' 
 				<br/>
 			{/if}
 			<span>{l s='Total :' mod='blockcart'}</span>
-			<span id="cart_block_total" class="price ajax_block_cart_total">{$total}</span>
+			<span id="cart_block_total" class="price ajax_block_cart_total">{$product_total}</span>
 		</p>
 		{if $use_taxes && $display_tax_label == 1 && $show_tax}
 			{if $priceDisplay == 0}

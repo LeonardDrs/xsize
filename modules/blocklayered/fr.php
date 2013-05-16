@@ -105,7 +105,7 @@ $_MODULE['<{blocklayered}prestashop>blocklayered_9e2941b3c81256fac10392aaca4ccfd
 $_MODULE['<{blocklayered}prestashop>blocklayered_2d25c72c1b18e562f6654fff8e11711e'] = 'Non disponible';
 $_MODULE['<{blocklayered}prestashop>blocklayered_fcebe56087b9373f15514831184fa572'] = 'En stock';
 $_MODULE['<{blocklayered}prestashop>blocklayered_faeaec9eda6bc4c8cb6e1a9156a858be'] = 'Disponibilité';
-$_MODULE['<{blocklayered}prestashop>blocklayered_c0bd7654d5b278e65f21cf4e9153fdb4'] = 'Fabricant';
+$_MODULE['<{blocklayered}prestashop>blocklayered_c0bd7654d5b278e65f21cf4e9153fdb4'] = 'Marques';
 $_MODULE['<{blocklayered}prestashop>blocklayered_308edffd52afae39cc6277e246ec5df8'] = 'Filtres disponibles';
 $_MODULE['<{blocklayered}prestashop>blocklayered_cfbc982f8fb7a0cc3abb3c85c795ab41'] = 'Filtre de sous-catégories';
 $_MODULE['<{blocklayered}prestashop>blocklayered_af605ea55ee39e54c444f217e346048f'] = 'Pas de limite';
@@ -127,7 +127,6 @@ $_MODULE['<{blocklayered}prestashop>blocklayered_ee59f74265cd7f85d0ad30206a1a89b
 $_MODULE['<{blocklayered}prestashop>blocklayered_b07e7131a6007b2a1a765bdd0e1e4894'] = 'Caractéristique :';
 $_MODULE['<{blocklayered}prestashop>blocklayered_f09cc7ee3a9a93273f4b80601cafb00c'] = 'valeurs';
 $_MODULE['<{blocklayered}prestashop>blocklayered_2063c1608d6e0baf80249c42e2be5804'] = 'valeur';
-$_MODULE['<{blocklayered}prestashop>blocklayered_c32516babc5b6c47eb8ce1bfc223253c'] = 'Catalogue';
 $_MODULE['<{blocklayered}prestashop>blocklayered_1262d1b9fbffb3a8e85ac9e4b449e989'] = 'Filtres actifs :';
 $_MODULE['<{blocklayered}prestashop>blocklayered_ea4788705e6873b424c65e91c2846b19'] = 'Annuler';
 $_MODULE['<{blocklayered}prestashop>blocklayered_853ae90f0351324bd73ea615e6487517'] = ' :';

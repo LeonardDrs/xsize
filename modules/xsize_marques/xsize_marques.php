@@ -13,7 +13,7 @@ class xsize_marques extends Module
 		
 	 	parent::__construct();
 
-		// $this->page = basename(__FILE__, '.php');
+		$this->page = basename(__FILE__, '.php');
 		$this->displayName = $this->l('xSize Marques');
 		$this->description = $this->l('Mise à jour des tailles en fonction des marques');
 	}
@@ -22,7 +22,7 @@ class xsize_marques extends Module
 	{
 		Db::getInstance()->Execute('
 		CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'xsize_marques` (
-		`id_correspondance` int(11) NOT NULL AUTO_INCREMENT UNIQUE,
+		`id_correspondance` int(11) NOT NULL AUTO_INCREMENT,
 		`id_manufacturer` int(11) NOT NULL,
 		`cm` varchar(255) NOT NULL,
 		`taille` varchar(255) NOT NULL,
@@ -33,7 +33,8 @@ class xsize_marques extends Module
 	function install()
 	{
 		$this->createDb();
-		if(!parent::install() || !$this->registerHook('home') || !$this->registerHook('header')) return false;
+		if(!parent::install() || !$this->registerHook('home') || !$this->registerHook('header') OR !$this->registerHook('productMarqueDescription'))
+			return false;
 	}
 
 	public function uninstall()
@@ -48,105 +49,47 @@ class xsize_marques extends Module
 
 	function getContent()
 	{
-		if (Tools::isSubmit('upload'))$this->uploade();
+		if (Tools::isSubmit('upload'))$this->upload();
 		$this -> affiche();
 	}
 
 
 
 /*###################################################################*/
-	function uploade(){
-		var_dump($_POST);
-		/// insertion bdd
-	}
 
 	function upload(){
-		//Uploading
-		$astrIncomingFiles = array('1_jpg', '2_jpg', '3_jpg', '4_jpg', '5_jpg');
-		$astrFilenames = array('1.jpg', '2.jpg', '3.jpg', '4.jpg','5.jpg');
-		$auiDimensions = array(array(1500, 700), array(1500, 700), array(1500, 700), array(1500, 700), array(1500, 700));
-
-		echo '<div class="conf confirm">';
-
-		for ($i = 0; $i < 5; ++$i)
-		{
-			$infile = $astrIncomingFiles[ $i ];
-			$outfile = $astrFilenames[ $i ];
-			if ($_FILES[ $infile ]['error'] != UPLOAD_ERR_NO_FILE)
-			{
-				if (isset($_FILES[ $infile ]['name']) && ($_FILES[ $infile ]['error'] == UPLOAD_ERR_OK))
-				{
-					$auiImgSize = getimagesize($_FILES[ $infile ]['tmp_name']);
-					$auiImgDims = $auiDimensions[ $i ];
-
-					if (($auiImgSize[ 0 ] <= $auiImgSize[ 0 ]) && ($auiImgSize[ 1 ] <= $auiImgSize[ 1 ])) // ici pour check la taille etc
-					{
-						if (move_uploaded_file($_FILES[ $infile ]['tmp_name'], _PS_ROOT_DIR_.'/modules/Slider/images/'.$outfile))
-						{
-							$title=Tools::getValue("title".strval($i+1));
-							$href=Tools::getValue("url".strval($i+1));
-							$url='./modules/Slider/images/'.strval($i+1).'.jpg';
-							$id=$i+1;
-							Db::getInstance()->autoExecute(_DB_PREFIX_.'xsize_slider', array(
-								'id_image' => $id,
-								'title' =>     pSQL($title),
-								'url' =>       pSQL($url),
-								'href' =>      pSQL($href)
-							), 'UPDATE','id_image ='.$id);
-							// var_dump($_FILES[ $infile ]);
-							echo "<li> Image ".$outfile.$title.$url." charg&eacute;e avec succ&egrave;s</li>";
-						}
-						else
-						{
-							echo "<li> Echec du chargement de l'image ".$outfile.".</li>";
-						}
-					}
-					else
-					{
-						echo '<li> Les dimensions de l\'image '.$outfile.' sont incorrectes. Fichier : ('.$auiImgSize[0].', '.$auiImgSize[1].') Requis : ('.$auiImgDims[0].', '.$auiImgDims[1].')</li>';
-					}
-				}
-				else
-				{
-					switch ($_FILES[ $infile ]['error'])
-					{
-						case UPLOAD_ERR_INI_SIZE:
-							 $message = "The uploaded file exceeds the upload_max_filesize directive in php.ini";
-							 break;
-						case UPLOAD_ERR_FORM_SIZE:
-							 $message = "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form";
-							 break;
-						case UPLOAD_ERR_PARTIAL:
-							 $message = "The uploaded file was only partially uploaded";
-							 break;
-						case UPLOAD_ERR_NO_FILE:
-							 $message = "No file was uploaded";
-							 break;
-						case UPLOAD_ERR_NO_TMP_DIR:
-							 $message = "Missing a temporary folder";
-							 break;
-						case UPLOAD_ERR_CANT_WRITE:
-							 $message = "Failed to write file to disk";
-							 break;
-						case UPLOAD_ERR_EXTENSION:
-							 $message = "File upload stopped by extension";
-							 break;
-
-						default:
-							 $message = "Unknown upload error";
-							 break;
-					}
-
-					echo '<li>Erreur lors du chargement du fichier '.$outfile.' : '.$message.'</li>';
-				}
-			}
-			else
-			{
-				echo '<li>Image "'.$infile.'" inchang&eacute;e.</li>';
+		foreach ($_POST as $key=>$marq) {
+			$nb =  preg_replace("#[-a-zA-Z]#", "", $key);
+			if (isset($manufacturer[$nb])) {
+				array_push($manufacturer[$nb],$marq);
+			} else {
+				$manufacturer[$nb]=array($marq);
 			}
 		}
-		echo '</div><br />';
+		
+		$sql = "INSERT INTO  `"._DB_PREFIX_."xsize_marques` (
+		`id_correspondance` ,
+		`id_manufacturer` ,
+		`taille` ,
+		`cm`
+		)
+		VALUES";
+		if ($manufacturer) {
+			foreach ($manufacturer as $key=>$marq) {
+				if ($marq[0]) {
+					foreach($marq[0] as $k=>$val) {
+						if (!empty($marq[0][$k])) {
+							$sql.= " (
+							NULL ,  '".$key."',  '".$marq[0][$k]."',  '".$marq[1][$k]."'
+							),";
+						}
+					}
+				}
+			}
+		}
 
+		Db::getInstance()->Execute('TRUNCATE TABLE `'._DB_PREFIX_.'xsize_marques`');
+		Db::getInstance()->Execute(substr($sql,0,-1));
 	}
 
 /*###################################################################*/
@@ -154,41 +97,41 @@ class xsize_marques extends Module
 	{
 		$marques = $this->getMarques();
 		$last = "";
-		// foreach($marques as $key=>$marque){
-		// 	echo "<pre>";
-		// 	var_dump($marque);
-		// 	echo "</pre>";
-		// 	foreach ($marque['taille'] as $key => $taille) {
-		// 		var_dump($taille);
-		// 	}
-		// }
+
 		echo '
-				<FORM id="mod_marques" method="POST" action="'.$_SERVER['REQUEST_URI'].'" ENCTYPE="multipart/form-data">
+				<FORM id="mod_marques" method="POST" action="'.$_SERVER['REQUEST_URI'].'">
 					</br></br>
 
                     Ce module vous permet de modifier les tailles en fonction des marques.<br/><br/><br/>
           
                    <hr>
-                   <table>
-                   <tr><th>Marque</th><th>Taille</th><th>Centimètres</th></tr>
-
 ';
+
 					foreach($marques as $key=>$marque)
 					{
-						
-						echo '<tr>
-						<td><b>'.$marque['name'].'</b></td>
-						<td><input type=text name="'.$marque['id_manufacturer'].'-taille[]" value="'.$marque['taille'].'" /></td>
-						<td><input type=text name="'.$marque['id_manufacturer'].'-cm[]" value="'.$marque['cm'].'" /></td>
-						';
-						if ($last != $marque['name']){ echo '<td><a href="#">Ajouter</a>';}
-						echo '</tr>';
-						if ($last == $marque['name'] && !empty($marque['taille'])){
-							echo '<tr>
-							<td class="new" ><b>'.$marque['name'].'</b></td>
-							<td><input type=text name="'.$marque['id_manufacturer'].'-taille[]" value="" /></td>
-							<td><input type=text name="'.$marque['id_manufacturer'].'-cm[]" value="" /></td>
-							</tr>';
+						if ($last != $marque['name']){ // if first
+							echo '
+							<div class="'.$marque['name'].'" style="margin:20px 0 10px;">
+							<b>'.$marque['name'].'</b>
+							<br>';
+						}
+						if (!empty($marque['taille'])){
+							echo '
+							<div class="ctn" style="margin-top:5px;">
+								<input type=text name="'.$marque['id_manufacturer'].'-taille[]" value="'.$marque['taille'].'" />
+								<input type=text name="'.$marque['id_manufacturer'].'-cm[]" value="'.$marque['cm'].'" />
+							</div>
+							';
+						}
+						if ($marques[$key+1]['name']!=$marque['name']) { // if last
+							echo '
+							<div class="ctn" style="margin-top:5px;display:inline-block">
+								<input type=text name="'.$marque['id_manufacturer'].'-taille[]" value="" />
+								<input type=text name="'.$marque['id_manufacturer'].'-cm[]" value="" />
+							</div>
+							<span class="add" style="display:inline-block;cursor:pointer;">Ajouter</span>
+							';
+							echo '</div>';
 						}
 						$last = $marque['name'];
 					}
@@ -200,39 +143,61 @@ echo '
 					                                           <hr> 
 
 
-				</FORM>'
+				</FORM>
+				<script type="text/javascript" charset="utf-8">
+					$(".add").click(function(){
+						$(this).prev(".ctn").clone().find("input").val("").end().insertBefore($(this))
+						$(this).prev().prev().css("display","block");
+					})
+				</script>'
 ;
 				
 	}
 	
-	function getMarques()
+	function getMarques($front = false)
 	{
 		// $sql='
 		// SELECT m.id_manufacturer, m.name, (SELECT taille FROM `'._DB_PREFIX_.'xsize_marques` AS xm WHERE xm.id_manufacturer = m.id_manufacturer) AS taille, (SELECT cm FROM `'._DB_PREFIX_.'xsize_marques` AS xm WHERE xm.id_manufacturer = m.id_manufacturer) AS cm 
 		// FROM '._DB_PREFIX_.'manufacturer AS m
 		// ORDER BY `name`';
 		$sql='
-		SELECT m.id_manufacturer, m.name, xm.taille,xm.cm FROM `'._DB_PREFIX_.'manufacturer` AS m LEFT JOIN `'._DB_PREFIX_.'xsize_marques` AS xm ON xm.id_manufacturer = m.id_manufacturer ORDER BY `name`';
+		SELECT m.id_manufacturer, m.name, xm.taille,xm.cm FROM `'._DB_PREFIX_.'manufacturer` AS m LEFT JOIN `'._DB_PREFIX_.'xsize_marques` AS xm ON xm.id_manufacturer = m.id_manufacturer';
 		if ($results = Db::getInstance()->ExecuteS($sql))
 			foreach ($results as $key=>$row)
 			{
 					$marques[$key] = $row;
 			}
-		// var_dump($marques);
-		return $marques;
+		
+
+		foreach ($marques as $key) {
+			if (isset($manufacturer[$key['id_manufacturer']])) {
+				array_push($manufacturer[$key['id_manufacturer']],$key);
+			} else {
+				$manufacturer[$key['id_manufacturer']]=array($key);
+			}
+		}
+
+		if ($front) {
+			return $manufacturer;
+		} else {
+			return $marques;
+		}
 	}
 
-	function hookHeader($params){
-		Tools::addCSS(_MODULE_DIR_.$this->name.'/css/'.$this->name.'.css');
-		Tools::addJS(_MODULE_DIR_.$this->name.'/js/jquery.cycle.js');
-		Tools::addJS(_MODULE_DIR_.$this->name.'/js/'.$this->name.'.js');
-	}
+	// function hookHeader($params){
+		// Tools::addCSS(_MODULE_DIR_.$this->name.'/css/'.$this->name.'.css');
+		// Tools::addJS(_MODULE_DIR_.$this->name.'/js/jquery.cycle.js');
+		// Tools::addJS(_MODULE_DIR_.$this->name.'/js/'.$this->name.'.js');
+	// }
 	
-	function hookHome($params)
+	public function hookProductMarqueDescription($params)
 	{
 		global $smarty;
-		$marques = $this->getMarques();
+		$id_p = Tools::getValue('id_product');
+		$id_manufacturer = Db::getInstance()->getValue('SELECT `id_manufacturer` FROM `'._DB_PREFIX_.'product` WHERE `id_product`='.$id_p);
+		$marques = $this->getMarques(true);
 		$smarty->assign('marques',$marques);
-		return $this->display(__FILE__, 'Slider.tpl');
+		$smarty->assign('manufacturer_id',$id_manufacturer);
+		return $this->display(__FILE__, 'marques.tpl');
 	}
 }

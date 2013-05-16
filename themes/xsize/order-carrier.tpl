@@ -110,7 +110,7 @@
 		{if $conditions AND $cms_id}
 			<p class="checkbox">
 				<input type="checkbox" name="cgv" id="cgv" value="1" />
-				<label for="cgv">{l s='I agree to the terms of service and adhere to them unconditionally.'}</label> <a href="{$link_conditions}" class="iframe">{l s='(read)'}</a>
+				<label for="cgv"><a id="aaa" href="{$link_conditions}" class="iframe">{l s='I agree to the terms of service and adhere to them unconditionally.'}</a></label>
 			</p>
 			<script type="text/javascript">$('a.iframe').fancybox();</script>
 		{/if}

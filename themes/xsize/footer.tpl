@@ -45,8 +45,8 @@
 							<p class="texteFooter">Besoin d'aide ? Appelez nous au 02 45 48 38 95</p>
 						</li>
 						<li class="elemFoot">
-							<img class="inconFooter1" src="{$img_dir}/home/Ifb.png"/>
-							<p class="texteFooter">Rejoignez nous sur <a href="http://www.facebook.com/julian.marchand">Facebook</a></p>
+							<a href="https://www.facebook.com/pages/X-size-boutique-de-v%C3%AAtements-grandes-tailles-pour-hommes-et-femmes/140079426065873" target="_blank"><img class="inconFooter1" src="{$img_dir}/home/Ifb.png"/>
+							<p class="texteFooter">Rejoignez nous sur Facebook</p></a>
 						</li>
 						<li class="elemFoot">
 						</li>

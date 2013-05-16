@@ -1,28 +1,9 @@
 <?php
-#####################################################################################################
-#
-#					Module pour la plateforme de paiement Systempay
-#						Version : 1.4d (révision 36570)
-#									########################
-#					Développé pour Prestashop
-#						Version : 1.4.0.x
-#						Compatibilité plateforme : V2
-#									########################
-#					Développé par Lyra Network
-#						http://www.lyra-network.com/
-#						18/06/2012
-#						Contact : supportvad@lyra-network.com
-#
-#####################################################################################################
 
 global $_MODULE;
 $_MODULE = array();
-$_MODULE['<{systempay}prestashop>order_systempay_66c7776255839a5c31403ccac659f56f'] = 'Payer avec Systempay';
-$_MODULE['<{systempay}prestashop>order_systempay_ea613ffe86a1bcbcd4c56d802fa0ff0f'] = 'Cliquez ici pour payer avec Systempay';
 $_MODULE['<{systempay}prestashop>order_systempay_8adffe14ac469d6a755e7232ba41ec36'] = 'Payer avec Systempay';
 $_MODULE['<{systempay}prestashop>order_systempay_bfd7aff6e63af5d91a173f8e52c24c5d'] = 'Cliquez ici pour payer avec Systempay';
-$_MODULE['<{systempay}prestashop>order_systempay_577b038d05f71fbc0d8d889d7bf2b77b'] = 'Payer avec Systempay';
-$_MODULE['<{systempay}prestashop>order_systempay_aa955a0e00bf5b9bdad775dbab47e84c'] = 'Cliquez ici pour payer avec Systempay';
 $_MODULE['<{systempay}prestashop>payment_return_2e2117b7c81aa9ea6931641ea2c6499f'] = 'Votre commande sur';
 $_MODULE['<{systempay}prestashop>payment_return_75fbf512d744977d62599cc3f0ae2bb4'] = 'est terminée.';
 $_MODULE['<{systempay}prestashop>payment_return_ee9d464a5f04b1c5f548d1655691ce82'] = 'Nous avons enregistré votre paiement de';
@@ -38,12 +19,8 @@ $_MODULE['<{systempay}prestashop>redirect_e555610477d1aa7807d93f28ba80141e'] = '
 $_MODULE['<{systempay}prestashop>redirect_ff1b91552dca022519140532b2b2ab82'] = 'Merci de patienter, vous allez êtes redirigé vers la plateforme de paiement.';
 $_MODULE['<{systempay}prestashop>redirect_4ac5858c2ddee9ac2370a6045860620e'] = 'Si vous n\'êtes pas redirigé dans 10 secondes, veuillez cliquer sur le bouton ci-dessous.';
 $_MODULE['<{systempay}prestashop>redirect_99938b17c91170dfb0c2f3f8bc9f2a85'] = 'Payer';
-$_MODULE['<{systempay}prestashop>systempay_085e103d28457c03842d5bbbafb83f21'] = 'Systempay';
 $_MODULE['<{systempay}prestashop>systempay_d3d27364e758bb0ca92b41edaef08de2'] = 'Systempay';
-$_MODULE['<{systempay}prestashop>systempay_dc5a1f36bb02b05d0df0e790d451f043'] = 'Systempay';
-$_MODULE['<{systempay}prestashop>systempay_9716ac996d516c06b5f7df7281a54e81'] = 'Payer par carte bancaire avec Systempay';
 $_MODULE['<{systempay}prestashop>systempay_9086bed79ad3ba231b519fd89f226ff8'] = 'Payer par carte bancaire avec Systempay';
-$_MODULE['<{systempay}prestashop>systempay_5228401f52c431c456a73f7d39ca6b16'] = 'Payer par carte bancaire avec Systempay';
 $_MODULE['<{systempay}prestashop>systempay_746bb4d715d73e3619f797a7756096e3'] = 'Valeur invalide';
 $_MODULE['<{systempay}prestashop>systempay_b0023a15df02ae884e2de275866e389f'] = 'pour le champ :';
 $_MODULE['<{systempay}prestashop>systempay_7f319c6b6e79fe8b9b159f569be552ad'] = 'Un problème est survenu lors de la sauvegarde du champ :';
@@ -130,6 +107,6 @@ $_MODULE['<{systempay}prestashop>systempay_5965e0beeeba5fb79b12a1cff58542da'] = 
 $_MODULE['<{systempay}prestashop>systempay_e2bd8487b5a5b58d4c3a0db4e2cc1a0c'] = 'Url vers laquelle le client sera redirigé à la fin du processus de paiement';
 $_MODULE['<{systempay}prestashop>systempay_310a02dd69e5109fdec011483776b452'] = 'Url serveur à copier dans l\'outil de gestion de caisse';
 $_MODULE['<{systempay}prestashop>systempay_f804457aafa5d4460a0caaf105d465eb'] = 'Réception d\'un code de paiement invalide pour une commande déjà enregistrée.';
-$_MODULE['<{systempay}prestashop>systempay_6b0922906bc0302e41bfe57c29bf09a9'] = 'Une erreur est survenue, votre commande n\'a pas été enregistrée.';
 $_MODULE['<{systempay}prestashop>systempay_de24df15226a5139eb60c3b24c1efbd6'] = 'Votre commande a été enregistrée avec une erreur de paiement.';
+$_MODULE['<{systempay}prestashop>systempay_6b0922906bc0302e41bfe57c29bf09a9'] = 'Une erreur est survenue, votre commande n\'a pas été enregistrée.';
 $_MODULE['<{systempay}prestashop>unknown_currency_fd817c793427fb36bcffd5e3cb0dd5dc'] = 'Méthode de paiement indisponible pour la devise :';

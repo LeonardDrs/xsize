@@ -37,8 +37,8 @@
 				<li class="{if $smarty.foreach.homeFeaturedProducts.first}first_item{elseif $smarty.foreach.homeFeaturedProducts.last}last_item{else}item{/if} {if $smarty.foreach.homeFeaturedProducts.iteration%$nbItemsPerLine == 0}last_item_of_line{elseif $smarty.foreach.homeFeaturedProducts.iteration%$nbItemsPerLine == 1}clear{/if} {if $smarty.foreach.homeFeaturedProducts.iteration > ($smarty.foreach.homeFeaturedProducts.total - ($smarty.foreach.homeFeaturedProducts.total % $nbItemsPerLine))}last_line{/if}">
 					<a href="{$product.link}" title="{$product.name|escape:html:'UTF-8'}"><img class ="imgTopp" src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home_best_seller')}" alt="{$product.name|escape:html:'UTF-8'}" /></a>
 					<div class="prodDesc">
-						<h3>{$product.manufacturer_name}</h3>
-						<h4>{$product.name|strip_tags|truncate:13:'...'}</h4>
+						<h3>{$product.name|strip_tags|truncate:30:'...'}</h3>
+						<h4>{$product.manufacturer_name}</h4>
 						<p>{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}</p>
 					<div>
 				</li>
